@@ -5,7 +5,7 @@ import stories from "../stories.json"
 export default function Stories() {
   return (
     <main className="bg-white text-gray-900">
-      {/* Hero / Title */}
+      {/* Hero / Title
       <section className="bg-green-100 py-16 px-6 text-center">
         <h1 className="text-4xl font-bold mb-4">Our stories: The voices that shape our projects</h1>
         <p className="text-lg text-gray-700 max-w-2xl mx-auto">
@@ -15,7 +15,7 @@ export default function Stories() {
       </section>
 
       {/* Stories List */}
-      <section className="py-16 px-6 md:px-12">
+      {/* <section className="py-16 px-6 md:px-12">
         <div className="max-w-5xl mx-auto space-y-10">
           {stories.map((s) => (
             <article key={s.slug} className="border-b pb-6 last:border-none">
@@ -30,10 +30,10 @@ export default function Stories() {
             </article>
           ))}
         </div>
-      </section>
+      </section> */}
 
       {/* Newsletter Signup */}
-      <section className="bg-green-50 py-16 px-6 text-center">
+      {/* <section className="bg-green-50 py-16 px-6 text-center">
         <h2 className="text-2xl font-semibold mb-4">Join our journey</h2>
         <p className="mb-6 text-gray-700">Subscribe to our stories.</p>
         <form
@@ -53,7 +53,7 @@ export default function Stories() {
             Subscribe
           </button>
         </form>
-      </section>
+      </section> */} 
     </main>
   );
 }
