@@ -123,15 +123,17 @@ export default function Home() {
           />
           <div>
             <h2 className="text-3xl font-bold mb-6">
-              A Transparent Way to Invest in the Planet
+              Seamless Experience &amp; Management
             </h2>
             <p className="text-lg text-gray-700 leading-relaxed mb-4">
-              Suprefarm connects investors with sustainable farms. We provide
-              live updates, virtual tours, and full transparency on your impact.
+              We manage every project from land preparation to harvest and
+              sales, using technology to monitor soil health, optimise yields,
+              and reduce waste.
             </p>
             <p className="text-lg text-gray-700 leading-relaxed">
-              Your investment supports smallholder farmers, promotes
-              biodiversity, and reduces carbon emissions.
+              Our partners and co-owners enjoy real-time updates on
+              climate-related progress and financial returns—ensuring
+              transparency and trust.
             </p>
           </div>
         </div>
@@ -186,106 +188,121 @@ export default function Home() {
 
       {/* What We Do  */}
       <section className="py-20 px-6 md:px-16 bg-gray-50">
-      <h2 className="text-4xl font-bold mb-6 text-green-700  flex justify-center text-center">What We Do</h2>
-  <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+        <h2 className="text-4xl font-bold mb-6 text-green-700  flex justify-center text-center">
+          What We Do
+        </h2>
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+          {/* Image Side */}
+          <div className="relative">
+            <img
+              src="/images/what-we-do-img.jpg"
+              alt="Farms and Impact"
+              className="w-full h-auto rounded-xl shadow-xl"
+            />
+            {/* Optional overlay pattern */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-xl pointer-events-none"></div>
+          </div>
 
-       {/* Image Side */}
-       <div className="relative">
-      <img
-        src="/images/what-we-do-img.jpg"
-        alt="Farms and Impact"
-        className="w-full h-auto rounded-xl shadow-xl"
-      />
-      {/* Optional overlay pattern */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-xl pointer-events-none"></div>
-    </div>
+          {/* Text Side */}
+          <div>
+            <p className="text-lg text-gray-700 mb-10">
+              We manage climate-smart farms and connect you to the process every
+              step of the way.
+            </p>
 
-    {/* Text Side */}
-    <div>
-  
-      <p className="text-lg text-gray-700 mb-10">
-        We manage climate-smart farms and connect you to the process every step of the way.
-      </p>
-
-      <div className="space-y-6">
-        {[
-          { icon: "🌱", title: "Instant Ownership Registration", desc: "Digital onboarding with KYC, e-signatures, and immediate issuance of ownership certificates." },
-          { icon: "🗂️", title: "Digital Title Verification", desc: "Integration with Nigeria and Ghana’s land registries to verify farmland before allocation." },
-          { icon: "💰", title: "Automated Ground Rent Billing", desc: "In-app alerts and auto-generated invoices linked to secure payment gateways." },
-          { icon: "🔗", title: "Blockchain Record-Keeping", desc: "Immutable ownership and transaction history to prevent disputes." },
-        ].map((item, idx) => (
-          <div
-            key={idx}
-            className="bg-green-100 rounded-xl p-6 flex items-start gap-4 shadow-lg hover:scale-105 transition-transform duration-300"
-          >
-            <div className="text-3xl">{item.icon}</div>
-            <div className="text-left">
-              <h3 className="font-semibold text-yellow-600 mb-1">{item.title}</h3>
-              <p className="text-gray-700">{item.desc}</p>
+            <div className="space-y-6">
+              {[
+                {
+                  icon: "🌱",
+                  title: "Instant Ownership Registration",
+                  desc: "Digital onboarding with KYC, e-signatures, and immediate issuance of ownership certificates.",
+                },
+                {
+                  icon: "🗂️",
+                  title: "Digital Title Verification",
+                  desc: "Integration with Nigeria and Ghana’s land registries to verify farmland before allocation.",
+                },
+                {
+                  icon: "💰",
+                  title: "Automated Ground Rent Billing",
+                  desc: "In-app alerts and auto-generated invoices linked to secure payment gateways.",
+                },
+                {
+                  icon: "🔗",
+                  title: "Blockchain Record-Keeping",
+                  desc: "Immutable ownership and transaction history to prevent disputes.",
+                },
+              ].map((item, idx) => (
+                <div
+                  key={idx}
+                  className="bg-green-700 rounded-xl p-6 flex items-start gap-4 shadow-lg hover:scale-105 transition-transform duration-300"
+                >
+                  <div className="text-3xl">{item.icon}</div>
+                  <div className="text-left">
+                    <h3 className="font-semibold text-yellow-600 mb-1">
+                      {item.title}
+                    </h3>
+                    <p className="text-white">{item.desc}</p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
-        ))}
-      </div>
-
-
-    </div>
-   
-  </div>
-  <div className="flex justify-center text-center">
-    <Link
-        to="/what-we-do"
-        className="inline-block mt-8 bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-full font-semibold  "
-      >
-        See How It Works
-      </Link>
-      </div>
-</section>
-
-
-<section className="py-20 px-6 md:px-16 bg-gray-50">
-  <div className="max-w-4xl mx-auto">
-    {/* Featured Project Card */}
-    <div className="bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col md:flex-row items-stretch hover:shadow-3xl transition-shadow duration-300">
-      
-      {/* Left: Image */}
-      <div className="md:w-1/2">
-        <img
-          src="/images/ilora-palm.jpg"
-          alt="Ilora Palm Tree Farmland"
-          className="w-full h-full object-cover"
-        />
-      </div>
-
-      {/* Right: Content */}
-      <div className="md:w-1/2 p-8 flex flex-col justify-between">
-        <div>
-          <h3 className="text-2xl md:text-3xl font-bold mb-4 flex items-center gap-2">
-            6️⃣ Featured Project
-          </h3>
-          <h4 className="text-xl md:text-2xl font-semibold mb-4">
-            Ilora Palm Tree Farmland
-          </h4>
-          <p className="text-gray-700 mb-4">
-            Join a 15-acre palm tree plantation in Ilora — already home to 10 proud co-owners.
-          </p>
-          <p className="text-gray-700 mb-6">
-            Your share directly funds farmer livelihoods, boosts local food production, and offers you seasonal returns.
-          </p>
         </div>
-        <Link
-          to="/projects"
-          className="self-start bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-full font-semibold"
-        >
-          Join Now
-        </Link>
-      </div>
-    </div>
-  </div>
-</section>
+        <div className="flex justify-center text-center">
+          <Link
+            to="/what-we-do"
+            className="inline-block mt-8 bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-full font-semibold  "
+          >
+            See How It Works
+          </Link>
+        </div>
+      </section>
 
+      <section className="py-20 px-6 md:px-12 bg-gray-50 ">
+        <div className="max-w-6xl mx-auto ">
+          {/* Featured Project Card */}
+          <div className="bg-white rounded-2xl h-[62vh] shadow-2xl  overflow-hidden flex flex-col md:flex-row items-stretch hover:shadow-3xl transition-shadow duration-300 w-full ">
+            {/* Left: Image */}
+            <div className="md:w-2/5 flex-shrink-0">
+              <img
+                src="/images/ilora-palm.jpg"
+                alt="Ilora Palm Tree Farmland"
+                className="w-full h-full object-cover"
+              />
+            </div>
+
+            {/* Right: Content */}
+            <div className="md:w-3/5 p-10 flex flex-col justify-between">
+              <div>
+                <h3 className="text-2xl md:text-3xl font-bold mb-4 flex items-center gap-2">
+                  Featured Project
+                </h3>
+                <h4 className="text-xl md:text-2xl font-semibold mb-4">
+                  Ilora Palm Tree Farmland
+                </h4>
+                <p className="text-gray-700 mb-4">
+                  Join a 15-acre palm tree plantation in Ilora, already home to
+                  10 proud co-owners.
+                </p>
+                <p className="text-gray-700 mb-6">
+                  Your share directly funds farmer livelihoods, boosts local
+                  food production, and offers you seasonal returns.
+                </p>
+              </div>
+              <Link
+                to="/projects"
+                className="self-start bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-full font-semibold"
+              >
+                Join Now
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Stories Section */}
-      <section className="py-20 px-6 md:px-16 bg-gray-50">
+      {/* <section className="py-20 px-6 md:px-16 bg-gray-50">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold mb-12 text-center">
             Stories From The Field
@@ -320,10 +337,10 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* CTA Section */}
-      <section className="py-20 px-6 md:px-16 bg-green-600 text-white text-center">
+      <section className="py-20 px-6 md:px-16 bg-green-700 text-white text-center">
         <h2 className="text-3xl font-bold mb-6">
           Join Us in Growing a Greener Future
         </h2>
