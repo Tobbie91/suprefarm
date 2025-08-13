@@ -3,18 +3,18 @@ import React from 'react';
 
 const outreachBoxes = [
   {
-    title: "For Buyers",
+    title: "Pool Funds and Co-Own",
     description:
-      "Secure high-integrity nature-based credits that deliver carbon removals—and support resilient, thriving communities.",
+      "Start from ₦50,000 or $100. Choose farmland or apartment projects.",
     cta: "Contact our team",
     link: "/contact",
     bgColor: "bg-green-600",
     textColor: "text-white",
   },
   {
-    title: "For Project Developers",
+    title: "I’m Abroad. Can I Join?",
     description:
-      "Get support with financing, MRV, and market access to scale your impact and connect with interested buyers.",
+      "Yes. Our platform is built for Diaspora co-owners. All documents and access are online.",
     cta: "Partner with us",
     link: "/contact",
     bgColor: "bg-white",

@@ -12,11 +12,11 @@ export default function Home() {
         <div className="bg-black/40 absolute inset-0"></div>
         <div className="relative z-10 text-center px-4">
           <h1 className="text-4xl md:text-6xl font-bold text-white">
-          Co-Own Land. Earn. Build Futures.
+            {/* Co-Own Land. Earn. Build Futures. */}
+            Partner with us to drive meaningful change
           </h1>
           <p className="mt-6 text-lg md:text-xl lg:text-2xl text-yellow-300 max-w-2xl mx-auto">
-      Join a community of co-owners transforming land into wealth—while creating jobs
-and feeding nations.
+          Community-based strategies that remove carbon, rejuvenate ecosystems, and build lasting livelihoods.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
             <Link
@@ -48,7 +48,7 @@ and feeding nations.
               A Transparent Way to Invest in the Planet
             </h2>
             <p className="text-lg text-gray-700 leading-relaxed mb-4">
-            Suprefarm connects investors with sustainable farms. We provide
+              Suprefarm connects investors with sustainable farms. We provide
               live updates, virtual tours, and full transparency on your impact.
             </p>
             <p className="text-lg text-gray-700 leading-relaxed">

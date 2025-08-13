@@ -52,8 +52,9 @@ export default function About() {
       <section className="bg-green-100 py-20 text-center">
         <h1 className="text-4xl font-bold mb-4">Beyond planting, cultivating change</h1>
         <p className="max-w-3xl mx-auto text-lg">
-          At Climate Lab, we partner with communities to restore ecosystems and build resilient livelihoods.
-          We transparently track and share our impact to ensure our projects create meaningful, lasting change.
+          At Suprefarm, We help you become a co-owner of high-potential land, rental apartments, and
+international property, without needing millions. All our projects are transparent,
+documented, and aligned with sustainable development goals.
         </p>
       </section>
 
@@ -61,21 +62,41 @@ export default function About() {
       <section className="py-16 px-8 md:px-16">
         <h2 className="text-3xl font-semibold mb-6">Our story: how did we get here?</h2>
         <p className="text-gray-700 leading-relaxed">
-          Our journey began under the shade of a fig tree in the Ethiopian highlands, where farmers gathered to express growing worries about land degradation and climate changes...
+        We started with one goal: to make real estate accessible for people who couldn’t
+afford to buy alone.
+In 2020, we acquired our first 15 acres in Ilora, Oyo State. People across the
+Diaspora pooled funds to co-own it. Smallholder farmers worked it. Everyone shared
+in the output. That one project created jobs, generated value, and proved something
+powerful:
+
         </p>
         <p className="text-gray-700 leading-relaxed mt-4">
-          In 2020, the Tigray famine brought immense uncertainty... EthioTrees remained and provided critical support to affected communities. This resilience proved the durability of the community-driven model and inspired the creation of Suprefarm.
+        Since then, we&#39;ve expanded to apartments and diaspora-led group
+ownership—combining legal access, transparency, and technology to build wealth
+for all.
         </p>
         <p className="text-gray-700 leading-relaxed mt-4">
-          We expanded this approach across Mozambique, Cameroon, Madagascar, and Bolivia, building a global network where knowledge is shared, and people collaborate to restore landscapes and strengthen communities.
+        We are not a platform for speculation.
+We are a platform for shared, sustainable, and transparent ownership—driven by
+community.
         </p>
       </section>
 
       {/* Mission */}
       <section className="bg-gray-50 py-16 px-8 md:px-16 text-center">
-        <h2 className="text-3xl font-semibold mb-6">Their Vision is Our Mission</h2>
+        <h2 className="text-3xl font-semibold mb-6">Our Vision n</h2>
         <p className="text-gray-700 leading-relaxed max-w-2xl mx-auto mb-4">
-          We partner with communities to implement nature-based solutions that foster environmental resilience and meaningful social change. Our mission is to co-create the conditions for communities to mobilize their own resources and bring their vision to life.
+        To become Africa’s most trusted platform for ethical co-ownership of agricultural and
+residential property—connecting land, people, and purpose across borders.
+        </p>
+      </section>
+
+      <section className="bg-gray-50 py-16 px-8 md:px-16 text-center">
+        <h2 className="text-3xl font-semibold mb-6"> Our Mission</h2>
+        <p className="text-gray-700 leading-relaxed max-w-2xl mx-auto mb-4">
+        To simplify co-ownership of farmland and property through transparent, legally-
+backed, and tech-enabled group models that create shared wealth, local jobs, and
+long-term security.
         </p>
       </section>
 
