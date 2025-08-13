@@ -12,13 +12,11 @@ export default function Home() {
         <div className="bg-black/40 absolute inset-0"></div>
         <div className="relative z-10 text-center px-4">
           <h1 className="text-4xl md:text-6xl font-bold text-white">
-            Own a Farm. Grow Wealth. Heal the Planet.
+          Co-Own Land. Earn. Build Futures.
           </h1>
-          <p className="mt-6 text-lg md:text-xl text-gray-100 max-w-2xl mx-auto">
-            We help you become a co-owner of high-potential land, rental
-            apartments, and international property, without needing millions.
-            All our projects are transparent, documented, and aligned with
-            sustainable development goals.”
+          <p className="mt-6 text-lg md:text-xl lg:text-2xl text-yellow-300 max-w-2xl mx-auto">
+      Join a community of co-owners transforming land into wealth—while creating jobs
+and feeding nations.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
             <Link
