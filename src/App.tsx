@@ -1,7 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import About from "./pages/about-us";
-import Stories from "./pages/Stories";
 import Project from "./pages/Projects";
 import Navbar from "./components/ layout/Navbar";
 import Footer from "./components/ layout/Footer";
@@ -20,7 +19,7 @@ export default function App() {
         <Route path="/about" element={<About />} />
         <Route path="/where-we-work" element={<WhereWeWork />} />
         <Route path="/work-with-us" element={<WorkWithUs />} />
-        <Route path="/stories" element={<Stories />} />
+        {/* <Route path="/stories" element={<Stories />} /> */}
         <Route path="/project/:slug" element={<Project />} />
         <Route path="/contact" element={<Contact />} />
       </Routes></main>

@@ -1,6 +1,11 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import green1 from "../assets/images/green1.webp";
+import green2 from "../assets/images/green2.webp";
+import green3 from "../assets/images/green3.webp";
+import green4 from "../assets/images/green4.webp";
+import green5 from "../assets/images/green5.webp";
+import green6 from "../assets/images/green6.webp";
 import howItWorksImg from "../assets/images/photo1.webp";
 
 const slides = [
@@ -10,12 +15,12 @@ const slides = [
     text: "Join a community that’s building a greener future through sustainable farming.",
   },
   {
-    image: green1,
+    image: green2,
     title: " Sustainable Farmland Co-Ownership",
     text: " Step into ownership of thriving palm tree farmland in Ilora. Create jobs, strengthen food security, and watch your impact grow with transparent updates powered by satellite and AI tracking.",
   },
   {
-    image: green1,
+    image: green3,
     title: "Grow your wealth while growing nature",
     text: "Our farms deliver returns while regenerating soil, restoring forests, and improving ecosystems.",
   },
@@ -94,7 +99,7 @@ export default function Home() {
               to="/contact"
               className="bg-white hover:bg-gray-100 text-gray-900 px-6 py-3 rounded-full font-semibold"
             >
-              Get Started
+            Partner with us
             </Link>
           </div>
         </div>
@@ -117,7 +122,7 @@ export default function Home() {
       <section className="py-16 px-6 md:px-16 bg-gray-50">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           <img
-            src="/images/intro.jpg"
+             src={green4}
             alt="Intro"
             className="w-full h-auto rounded-lg shadow-lg"
           />
@@ -195,9 +200,9 @@ export default function Home() {
           {/* Image Side */}
           <div className="relative">
             <img
-              src="/images/what-we-do-img.jpg"
+              src={green6}
               alt="Farms and Impact"
-              className="w-full h-auto rounded-xl shadow-xl"
+              className="w-full lg:h-[70vh] h-auto rounded-xl shadow-xl mt-[6.5em]"
             />
             {/* Optional overlay pattern */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-xl pointer-events-none"></div>
@@ -266,7 +271,7 @@ export default function Home() {
             {/* Left: Image */}
             <div className="md:w-2/5 flex-shrink-0">
               <img
-                src="/images/ilora-palm.jpg"
+                src={green5}
                 alt="Ilora Palm Tree Farmland"
                 className="w-full h-full object-cover"
               />
