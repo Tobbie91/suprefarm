@@ -35,21 +35,21 @@ export default function Navbar() {
           >
             What we do
           </NavLink>
-          <NavLink
+          {/* <NavLink
             to="/where-we-work"
             className={({ isActive }) =>
               `${baseLink} ${isActive ? activeLink : ""}`
             }
           >
             Where we work
-          </NavLink>
+          </NavLink> */}
           <NavLink
-            to="/stories"
+            to="/where-we-work"
             className={({ isActive }) =>
               `${baseLink} ${isActive ? activeLink : ""}`
             }
           >
-            Stories
+        Projects
           </NavLink>
           <NavLink
             to="/work-with-us"
@@ -57,7 +57,7 @@ export default function Navbar() {
               `${baseLink} ${isActive ? activeLink : ""}`
             }
           >
-            Work with us
+     Partner with us
           </NavLink>
           <NavLink
             to="/contact"
@@ -86,8 +86,8 @@ export default function Navbar() {
               { to: "/about", label: "About us" },
               { to: "/what-we-do", label: "What we do" },
               { to: "/where-we-work", label: "Where we work" },
-              { to: "/stories", label: "Stories" },
-              { to: "/work-with-us", label: "Work with us" },
+              { to: "/stories", label: "Projects" },
+              { to: "/work-with-us", label: "Partner with us" },
               { to: "/contact", label: "Contact" },
             ].map((link) => (
               <NavLink

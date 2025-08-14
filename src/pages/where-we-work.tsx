@@ -32,27 +32,27 @@ export default function WhereWeWork() {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12">
           {[
             {
-              region: "Ethiopia",
+              region: "Nigeria",
               description:
-                "Ethiopia is home to our first large-scale reforestation efforts. We've worked with local communities to restore land and promote sustainable agriculture.",
+                "Nigeria is home to our first large-scale reforestation efforts. We've worked with local communities to restore land and promote sustainable agriculture.",
               image: "/images/ethiopia.jpg",
             },
             {
-              region: "Mozambique",
+              region: "Ghana",
               description:
-                "In Mozambique, we are pioneering agroforestry projects that provide both economic opportunities and biodiversity protection.",
+                "In Ghana, we are pioneering agroforestry projects that provide both economic opportunities and biodiversity protection.",
               image: "/images/mozambique.jpg",
             },
             {
-              region: "Cameroon",
+              region: "Nigeria",
               description:
-                "Our Cameroon projects are focused on community-led carbon sequestration and ecosystem restoration, benefiting both nature and local livelihoods.",
+                "Our Nigeria projects are focused on community-led carbon sequestration and ecosystem restoration, benefiting both nature and local livelihoods.",
               image: "/images/cameroon.jpg",
             },
             {
-              region: "Bolivia",
+                region: "Ghana",
               description:
-                "In Bolivia, we support sustainable farming practices that improve soil quality, protect ecosystems, and increase community resilience.",
+                "In Ghana, we support sustainable farming practices that improve soil quality, protect ecosystems, and increase community resilience.",
               image: "/images/bolivia.jpg",
             },
           ].map((region, idx) => (
