@@ -1,5 +1,4 @@
-// src/pages/WorkWithUs.tsx
-import React from 'react';
+
 
 const outreachBoxes = [
   {
