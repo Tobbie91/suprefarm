@@ -9,7 +9,7 @@ export default function Footer() {
       <Container className="py-16 grid md:grid-cols-3 gap-10 text-sm">
         
         {/* About Section */}
-        <div className='px-[4em]'>
+        <div className='lg:px-[4em]'>
           <h3 className="font-bold text-lg mb-3">Suprefarm</h3>
           <p className="text-green-500">
             Community-based climate solutions and carbon removals. Join us in creating sustainable impact for farmers and the environment.

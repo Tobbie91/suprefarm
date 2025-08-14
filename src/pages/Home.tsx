@@ -267,7 +267,7 @@ export default function Home() {
       <section className="py-20 px-6 md:px-12 bg-gray-50 ">
         <div className="max-w-6xl mx-auto ">
           {/* Featured Project Card */}
-          <div className="bg-white rounded-2xl h-[62vh] shadow-2xl  overflow-hidden flex flex-col md:flex-row items-stretch hover:shadow-3xl transition-shadow duration-300 w-full ">
+          <div className="bg-white rounded-2xl lg:h-[62vh] shadow-2xl  overflow-hidden flex flex-col md:flex-row items-stretch hover:shadow-3xl transition-shadow duration-300 w-full ">
             {/* Left: Image */}
             <div className="md:w-2/5 flex-shrink-0">
               <img
