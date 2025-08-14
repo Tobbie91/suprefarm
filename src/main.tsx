@@ -1,11 +1,14 @@
 
-import ReactDOM from 'react-dom/client';
+import { createRoot } from 'react-dom/client'; // ✅ named import
 import { HelmetProvider } from 'react-helmet-async';
 import React from 'react';
 import App from './App';
-import './index.css' 
+import './index.css';
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
+const container = document.getElementById('root');
+if (!container) throw new Error('Root container missing');
+
+createRoot(container).render(
   <React.StrictMode>
     <HelmetProvider>
       <App />
