@@ -1,55 +1,55 @@
 import green4 from "../assets/images/green4.webp";
 import green2 from "../assets/images/green2.webp";
 
-const communityQuotes = [
-  {
-    quote:
-      "A local hospital and a reconstructed school so everyone can access healthcare and children can learn in a safe environment.",
-    name: "Marceline",
-    role: "Farmer (Voa Aina)",
-  },
-  {
-    quote: "A different life for my three children, a life that is better.",
-    name: "Julien",
-    role: "Farmer (Voa Aina)",
-  },
-  {
-    quote:
-      "A sustainable life. A life where we can think long-term, with stable access to food and other essentials.",
-    name: "Teame",
-    role: "Landless farmer (EthioTrees)",
-  },
-  {
-    quote: "Parents with enough revenue for children to eat every day.",
-    name: "Navarana",
-    role: "Community agent (Voa Aina)",
-  },
-  {
-    quote:
-      "Clean water in our community, to end water scarcity and ensure our children don’t miss school to collect it.",
-    name: "Letay",
-    role: "Farmer (EthioTrees)",
-  },
-  {
-    quote: "When you plant trees, you add good to humanity.",
-    name: "Roland",
-    role: "Farmer (Fes Enying)",
-  },
-  {
-    quote:
-      "A peaceful environment where our children can attend school and contribute to the development of our country, especially our region of Tigray.",
-    name: "Haffu",
-    role: "School director (EthioTrees)",
-  },
-];
+// const communityQuotes = [
+//   {
+//     quote:
+//       "A local hospital and a reconstructed school so everyone can access healthcare and children can learn in a safe environment.",
+//     name: "Marceline",
+//     role: "Farmer (Voa Aina)",
+//   },
+//   {
+//     quote: "A different life for my three children, a life that is better.",
+//     name: "Julien",
+//     role: "Farmer (Voa Aina)",
+//   },
+//   {
+//     quote:
+//       "A sustainable life. A life where we can think long-term, with stable access to food and other essentials.",
+//     name: "Teame",
+//     role: "Landless farmer (EthioTrees)",
+//   },
+//   {
+//     quote: "Parents with enough revenue for children to eat every day.",
+//     name: "Navarana",
+//     role: "Community agent (Voa Aina)",
+//   },
+//   {
+//     quote:
+//       "Clean water in our community, to end water scarcity and ensure our children don’t miss school to collect it.",
+//     name: "Letay",
+//     role: "Farmer (EthioTrees)",
+//   },
+//   {
+//     quote: "When you plant trees, you add good to humanity.",
+//     name: "Roland",
+//     role: "Farmer (Fes Enying)",
+//   },
+//   {
+//     quote:
+//       "A peaceful environment where our children can attend school and contribute to the development of our country, especially our region of Tigray.",
+//     name: "Haffu",
+//     role: "School director (EthioTrees)",
+//   },
+// ];
 
-const values = [
-  "Meaningful Social Impact",
-  "Committed Communities",
-  "True Partnerships",
-  "High-Integrity Carbon Credits",
-  "Science-backed Solutions",
-];
+// const values = [
+//   "Meaningful Social Impact",
+//   "Committed Communities",
+//   "True Partnerships",
+//   "High-Integrity Carbon Credits",
+//   "Science-backed Solutions",
+// ];
 
 const teamMembers = [
   { name: "Miro Jacob", role: "Co-founder" },
@@ -63,73 +63,73 @@ const teamMembers = [
   { name: "Tobbie Tobbie", role: "Project Coordinator BoliTrees" },
 ];
 
-const keyRoles = [
-  {
-    name: "Gebrekidan",
-    roleDesc: "Project Support Officer, EthioTrees",
-    quote:
-      "Our ultimate goal is to foster a sense of ownership among the communities we work with, for them to see the tree as theirs, something they care for and protect.",
-  },
-  {
-    name: "Seguin",
-    roleDesc: "Nursery worker, Voa Aina",
-    quote:
-      "We don’t just share seedlings, we share our knowledge through new farming techniques",
-  },
-  {
-    name: "Léa",
-    roleDesc: "Communication and sensitisation responsible, Fes Enying",
-    quote:
-      "This work has transformed me. It has taught me to listen with my heart, to understand the realities on the ground, and to believe even more in the power of human commitment.",
-  },
-  {
-    name: "Juste",
-    roleDesc: "Technical Expert, Voa Aina",
-    quote:
-      "We need both nature and development, it’s all about finding the right balance",
-  },
-  {
-    name: "Suzie",
-    roleDesc: "Social Expert, Voa Aina",
-    quote:
-      "Working with communities means caring, listening, and supporting, but above all, it means accepting people as they are",
-  },
-  {
-    name: "Atakhi",
-    roleDesc: "Ranger, EthioTrees",
-    quote:
-      "I protect our exclosure from illegal cutting to maximize benefits to our community. Restoring our land is the greatest reward, it’s our insurance for the years to come.",
-  },
-  {
-    name: "Odile",
-    roleDesc: "Technical Assistant, Fes Enying",
-    quote: "When the community unites for nature, nature blesses the community",
-  },
-  {
-    name: "Guesh",
-    roleDesc: "Sub-Office Coordinator, EthioTrees",
-    quote:
-      "Some farmers have started growing their own seedlings in response to the rising demand. This shift is a direct result of the on-the-job training provided in the nurseries, creating new income opportunities for our farmers.",
-  },
-  {
-    name: "Armand",
-    roleDesc: "Nursery worker, Fes Enying",
-    quote:
-      "I started with my own small nursery at home, now I am responsible for the nursery in Moinkoing. I like helping the farmers take care of their plants after the distribution.",
-  },
-  {
-    name: "Siméon",
-    roleDesc: "Technical director, Fes Enying",
-    quote:
-      "In my job, you have to be in contact with all the traditional chiefs and sectoral representatives, not forgetting the communities. It’s a new family.",
-  },
-  {
-    name: "Tsige",
-    roleDesc: "Nursery worker, EthioTrees",
-    quote:
-      "We use grafting techniques to improve fruit production and quality, while also keeping the trees shorter so farmers can harvest more easily. All of this helps increase their income.",
-  },
-];
+// const keyRoles = [
+//   {
+//     name: "Gebrekidan",
+//     roleDesc: "Project Support Officer, EthioTrees",
+//     quote:
+//       "Our ultimate goal is to foster a sense of ownership among the communities we work with, for them to see the tree as theirs, something they care for and protect.",
+//   },
+//   {
+//     name: "Seguin",
+//     roleDesc: "Nursery worker, Voa Aina",
+//     quote:
+//       "We don’t just share seedlings, we share our knowledge through new farming techniques",
+//   },
+//   {
+//     name: "Léa",
+//     roleDesc: "Communication and sensitisation responsible, Fes Enying",
+//     quote:
+//       "This work has transformed me. It has taught me to listen with my heart, to understand the realities on the ground, and to believe even more in the power of human commitment.",
+//   },
+//   {
+//     name: "Juste",
+//     roleDesc: "Technical Expert, Voa Aina",
+//     quote:
+//       "We need both nature and development, it’s all about finding the right balance",
+//   },
+//   {
+//     name: "Suzie",
+//     roleDesc: "Social Expert, Voa Aina",
+//     quote:
+//       "Working with communities means caring, listening, and supporting, but above all, it means accepting people as they are",
+//   },
+//   {
+//     name: "Atakhi",
+//     roleDesc: "Ranger, EthioTrees",
+//     quote:
+//       "I protect our exclosure from illegal cutting to maximize benefits to our community. Restoring our land is the greatest reward, it’s our insurance for the years to come.",
+//   },
+//   {
+//     name: "Odile",
+//     roleDesc: "Technical Assistant, Fes Enying",
+//     quote: "When the community unites for nature, nature blesses the community",
+//   },
+//   {
+//     name: "Guesh",
+//     roleDesc: "Sub-Office Coordinator, EthioTrees",
+//     quote:
+//       "Some farmers have started growing their own seedlings in response to the rising demand. This shift is a direct result of the on-the-job training provided in the nurseries, creating new income opportunities for our farmers.",
+//   },
+//   {
+//     name: "Armand",
+//     roleDesc: "Nursery worker, Fes Enying",
+//     quote:
+//       "I started with my own small nursery at home, now I am responsible for the nursery in Moinkoing. I like helping the farmers take care of their plants after the distribution.",
+//   },
+//   {
+//     name: "Siméon",
+//     roleDesc: "Technical director, Fes Enying",
+//     quote:
+//       "In my job, you have to be in contact with all the traditional chiefs and sectoral representatives, not forgetting the communities. It’s a new family.",
+//   },
+//   {
+//     name: "Tsige",
+//     roleDesc: "Nursery worker, EthioTrees",
+//     quote:
+//       "We use grafting techniques to improve fruit production and quality, while also keeping the trees shorter so farmers can harvest more easily. All of this helps increase their income.",
+//   },
+// ];
 
 export default function About() {
   return (
