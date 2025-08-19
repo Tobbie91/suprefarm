@@ -35,16 +35,9 @@ export default function Navbar() {
           >
             What we do
           </NavLink>
-          {/* <NavLink
-            to="/where-we-work"
-            className={({ isActive }) =>
-              `${baseLink} ${isActive ? activeLink : ""}`
-            }
-          >
-            Where we work
-          </NavLink> */}
+        
           <NavLink
-            to="/where-we-work"
+            to="/projects"
             className={({ isActive }) =>
               `${baseLink} ${isActive ? activeLink : ""}`
             }
