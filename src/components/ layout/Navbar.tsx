@@ -2,6 +2,14 @@ import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
 
+const navItems = [
+  { to: "/about", label: "About us", type: "route" as const },
+  { to: "/what-we-do", label: "What we do", type: "route" as const },
+  { to: "/projects", label: "Projects", type: "route" as const },
+  { to: "/work-with-us", label: "Partner with us", type: "route" as const },
+  { to: "/contact", label: "Contact", type: "route" as const },
+];
+
 export default function Navbar() {
   const [open, setOpen] = useState(false);
 
@@ -18,54 +26,36 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Links */}
-        <div className="hidden md:flex gap-1 text-sm font-medium">
-          <NavLink
-            to="/about"
-            className={({ isActive }) =>
-              `${baseLink} ${isActive ? activeLink : ""}`
-            }
+        <div className="hidden md:flex items-center gap-1 text-sm font-medium">
+          {navItems.map((item) => (
+            <NavLink
+              key={item.to}
+              to={item.to}
+              className={({ isActive }) =>
+                `${baseLink} ${isActive ? activeLink : ""}`
+              }
+            >
+              {item.label}
+            </NavLink>
+          ))}
+
+          {/* SDGs jump (hash link to Home section) */}
+          <Link
+            to="/#sdgs"
+            className={`${baseLink}`}
+            title="Scroll to SDGs on Home"
           >
-            About us
-          </NavLink>
-          <NavLink
-            to="/what-we-do"
-            className={({ isActive }) =>
-              `${baseLink} ${isActive ? activeLink : ""}`
-            }
-          >
-            What we do
-          </NavLink>
-        
-          <NavLink
-            to="/projects"
-            className={({ isActive }) =>
-              `${baseLink} ${isActive ? activeLink : ""}`
-            }
-          >
-        Projects
-          </NavLink>
-          <NavLink
-            to="/work-with-us"
-            className={({ isActive }) =>
-              `${baseLink} ${isActive ? activeLink : ""}`
-            }
-          >
-     Partner with us
-          </NavLink>
-          <NavLink
-            to="/contact"
-            className={({ isActive }) =>
-              `${baseLink} ${isActive ? activeLink : ""}`
-            }
-          >
-            Contact
-          </NavLink>
+            SDGs & Impact
+          </Link>
         </div>
 
         {/* Mobile Menu Button */}
         <button
           className="md:hidden text-2xl text-green-700"
-          onClick={() => setOpen(!open)}
+          onClick={() => setOpen((v) => !v)}
+          aria-label="Toggle menu"
+          aria-expanded={open}
+          aria-controls="mobile-menu"
         >
           {open ? <FiX /> : <FiMenu />}
         </button>
@@ -73,16 +63,9 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {open && (
-        <div className="md:hidden bg-white border-t shadow-md">
+        <div id="mobile-menu" className="md:hidden bg-white border-t shadow-md">
           <div className="flex flex-col px-4 py-2">
-            {[
-              { to: "/about", label: "About us" },
-              { to: "/what-we-do", label: "What we do" },
-              { to: "/where-we-work", label: "Where we work" },
-              { to: "/stories", label: "Projects" },
-              { to: "/work-with-us", label: "Partner with us" },
-              { to: "/contact", label: "Contact" },
-            ].map((link) => (
+            {navItems.map((link) => (
               <NavLink
                 key={link.to}
                 to={link.to}
@@ -96,6 +79,15 @@ export default function Navbar() {
                 {link.label}
               </NavLink>
             ))}
+
+            {/* SDGs jump (hash link) */}
+            <Link
+              to="/#sdgs"
+              className="px-3 py-2 rounded-md hover:bg-green-100"
+              onClick={() => setOpen(false)}
+            >
+              SDGs & Impact
+            </Link>
           </div>
         </div>
       )}
