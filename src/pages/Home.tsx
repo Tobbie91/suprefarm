@@ -195,7 +195,7 @@ export default function Home() {
         </nav>
       </section>
 
-      <section className="px-6 md:px-12 -mt-8 relative z-10">
+      <section className="px-6 md:px-12 -mt-4 relative z-10">
         <div className="max-w-6xl mx-auto rounded-2xl border border-gray-200 bg-white/80 backdrop-blur p-6 md:p-8 shadow-md">
           <p className="text-[17px] md:text-lg text-gray-800">
             Suprefarm provides climate-smart, community co-ownership of farmland using a modular, three-pillar approach:
