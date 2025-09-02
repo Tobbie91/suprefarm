@@ -6,7 +6,7 @@ const navItems = [
   { to: "/about", label: "About us", type: "route" as const },
   { to: "/what-we-do", label: "What we do", type: "route" as const },
   { to: "/projects", label: "Projects", type: "route" as const },
-  { to: "/work-with-us", label: "Partner with us", type: "route" as const },
+  { to: "/work-with-us", label: "Work with us", type: "route" as const },
   { to: "/contact", label: "Contact", type: "route" as const },
 ];
 
@@ -94,3 +94,4 @@ export default function Navbar() {
     </header>
   );
 }
+ 
