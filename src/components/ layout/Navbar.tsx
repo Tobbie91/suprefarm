@@ -3,12 +3,15 @@ import { useState } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
 
 const navItems = [
+  { to: "/", label: "Home", type: "route" as const },
   { to: "/about", label: "About us", type: "route" as const },
   { to: "/what-we-do", label: "What we do", type: "route" as const },
   { to: "/projects", label: "Projects", type: "route" as const },
-  { to: "/work-with-us", label: "Work with us", type: "route" as const },
+  { to: "/work-with-us", label: "How it works", type: "route" as const },
   { to: "/contact", label: "Contact", type: "route" as const },
 ];
+
+const SIGN_IN_URL = "https://suprefarmapp.netlify.app/login";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -39,14 +42,16 @@ export default function Navbar() {
             </NavLink>
           ))}
 
-          {/* SDGs jump (hash link to Home section) */}
-          <Link
-            to="/#sdgs"
-            className={`${baseLink}`}
-            title="Scroll to SDGs on Home"
+          {/* Sign in (external) */}
+          <a
+            href={SIGN_IN_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="ml-2 inline-flex items-center justify-center rounded-full bg-green-600 text-white px-4 py-2 font-semibold hover:bg-green-700 transition"
+            aria-label="Sign in to Suprefarm"
           >
-            SDGs & Impact
-          </Link>
+            Sign in
+          </a>
         </div>
 
         {/* Mobile Menu Button */}
@@ -80,18 +85,20 @@ export default function Navbar() {
               </NavLink>
             ))}
 
-            {/* SDGs jump (hash link) */}
-            <Link
-              to="/#sdgs"
-              className="px-3 py-2 rounded-md hover:bg-green-100"
+            {/* Sign in (mobile) */}
+            <a
+              href={SIGN_IN_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-2 inline-flex items-center justify-center rounded-full bg-green-600 text-white px-4 py-2 font-semibold hover:bg-green-700 transition"
               onClick={() => setOpen(false)}
+              aria-label="Sign in to Suprefarm"
             >
-              SDGs & Impact
-            </Link>
+              Sign in
+            </a>
           </div>
         </div>
       )}
     </header>
   );
 }
- 

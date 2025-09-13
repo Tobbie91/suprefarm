@@ -9,7 +9,7 @@ export default function Contact() {
       <section className="bg-green-900 py-20 px-6 text-center text-white">
         <h1 className="text-4xl md:text-5xl font-bold mb-4">Contact Us</h1>
         <p className="text-lg md:text-xl opacity-90 max-w-2xl mx-auto">
-          Let’s co-create community-driven climate solutions — together.
+          Let’s co-create community-driven climate solutions together.
         </p>
       </section>
 

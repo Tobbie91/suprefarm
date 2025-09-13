@@ -3,5 +3,45 @@
 @tailwind components;
 @tailwind utilities;
 
-
+/* Apply this to your global styles or inside a <style> tag if you're using inline styles in a component */
+input[type="range"].slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 8px;
+    border-radius: 5px;
+    background: #e0e0e0; /* Light gray background for the track */
+  }
+  
+  /* input[type="range"].slider::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 8px;
+    border-radius: 5px;
+    background: #4CAF50; 
+  } */
+  
+  input[type="range"].slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #4CAF50; /* Green color for the thumb */
+    cursor: pointer;
+  }
+  
+  input[type="range"].slider::-moz-range-track {
+    width: 100%;
+    height: 8px;
+    border-radius: 5px;
+    background: #4CAF50; /* Green color for the track in Firefox */
+  }
+  
+  input[type="range"].slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #4CAF50; /* Green color for the thumb in Firefox */
+  }
+  
 

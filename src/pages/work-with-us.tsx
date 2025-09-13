@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+
 import type { KeyboardEvent } from "react";
-import { useNavigate } from "react-router-dom";
-import { ShieldCheck, Users, BarChart3, Globe } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
+import { ShieldCheck, Users, BarChart3, Globe, ArrowRight } from "lucide-react";
 import green7 from "../assets/images/green7.webp";
 import green8 from "../assets/images/green8.webp";
 import green9 from "../assets/images/green9.webp";
 import green10 from "../assets/images/green10.webp";
+import SuprefarmSimulator from "../components/home/simultor";
 
 type Mode = "pool" | "acquire";
 type OutreachBox = {
@@ -39,13 +40,14 @@ const outreachBoxes: OutreachBox[] = [
     buttonStyle: "text-green-700 border-green-700 hover:bg-green-200",
   },
   {
-    title: "I’m Abroad. Can I Join?",
+    title: "Join from the Diaspora",
     description:
-      "Yes! Our platform is designed for the Diaspora. You can invest, co-own, and manage farmland from anywhere in the world. All processes and documents are online.",
-    cta: "Partner with Us",
+      "Start remotely, co-own verified farmland, and receive transparent updates without being on the ground.",
+    cta: "Start as a Diaspora Investor",
     mode: "pool",
     bgColor: "bg-white",
     textColor: "text-gray-900",
+    buttonStyle: "text-green-700 border-green-700 hover:bg-green-50",
   },
   {
     title: "Earn and Grow",
@@ -60,24 +62,20 @@ const outreachBoxes: OutreachBox[] = [
 ];
 
 export default function WorkWithUs() {
-  const [plots, setPlots] = useState(1);
-  const [acres, setAcres] = useState(0.1);
-  const navigate = useNavigate();
 
+  const navigate = useNavigate();
+  const APP_URL = "https://suprefarmapp.netlify.app/login";
   // Single helper to send users to payment with params
-  function goToPayment(mode: Mode = "pool", extras?: Record<string, string | number>) {
+  function goToPayment(
+    mode: Mode = "pool",
+    extras?: Record<string, string | number>
+  ) {
     const params = new URLSearchParams({ mode });
     if (extras) {
       Object.entries(extras).forEach(([k, v]) => params.set(k, String(v)));
     }
     navigate(`/payment?${params.toString()}`);
   }
-
-  const handleInvestmentSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Acquire path → if your AcquireGate is set up, it will route to /auth if not signed in
-    goToPayment("acquire", { plots, acres });
-  };
 
   const keyActivate = (e: KeyboardEvent, fn: () => void) => {
     if (e.key === "Enter" || e.key === " ") {
@@ -89,130 +87,104 @@ export default function WorkWithUs() {
   return (
     <main className="bg-white text-gray-900">
       {/* Hero Section */}
-      <section className="bg-green-900 text-white py-24 px-6 md:px-12 text-center relative">
+      <section className="bg-green-900 text-white py-24 px-6 md:px-12 text-center relative mb-[4em]">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
-            Work <span className="text-yellow-400">With Us</span>
+            How <span className="text-yellow-400">It Works</span>
           </h1>
           <p className="text-lg md:text-xl opacity-90 mb-10">
-            Join hands with <span className="font-semibold">SupreFarm</span> to
-            create <span className="underline decoration-yellow-400">real impact</span>{" "}
-            driving <span className="text-yellow-400 font-medium">climate-smart agriculture</span>,
-            high-integrity carbon removals, and thriving communities.
+            Pick plots with <span className="font-semibold">Suprefarm</span>,
+            verify ownership, and monitor your farm’s progress, turning
+            <span className="underline decoration-yellow-400">
+              {" "}
+              real impact
+            </span>{" "}
+            into
+            <span className="text-yellow-400 font-medium">
+              {" "}
+              climate-smart results
+            </span>{" "}
+            and shared value.
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-6">
-            <button
-              onClick={() => goToPayment("pool")}
-              className="px-8 py-4 rounded-2xl bg-yellow-400 text-green-900 font-semibold text-lg shadow-md hover:bg-yellow-300 transition"
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-6 ">
+            <Link
+              to="/projects"
+              aria-label="Browse farm opportunities"
+              className="inline-flex items-center gap-2 px-7 py-3 rounded-xl
+             bg-emerald-600 text-white font-semibold shadow-sm
+             hover:bg-emerald-700 transition
+             focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-700/50"
             >
-              Partner With Us
-            </button>
+              Browse Farm Opportunities
+              <ArrowRight className="h-4 w-4" />
+            </Link>
           </div>
         </div>
       </section>
 
       {/* Investment Selection */}
+      <SuprefarmSimulator />
+
       <section
-        id="investment"
-        className="py-16 px-6 md:px-12 bg-green-50 rounded-xl shadow-lg max-w-4xl mx-auto mt-12"
+        id="buy"
+        className="py-8 md:py-10 px-6 md:px-12 bg-white border-b border-gray-100"
       >
-        <h2 className="text-3xl font-bold text-center mb-6 text-green-800">
-          Select Your Plot or Acre
-        </h2>
-        <p className="text-center mb-8 text-gray-700">
-          Select the number of plots or acres you wish to invest in. Our system
-          automatically groups investors into co-owner units to maximize
-          efficiency and yields.
-        </p>
-
-        <form onSubmit={handleInvestmentSubmit} className="grid gap-6 md:grid-cols-2">
+        <div className="max-w-3xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
           <div>
-            <label className="block mb-2 font-semibold text-gray-800">Plots</label>
-            <input
-              type="number"
-              min={1}
-              value={plots}
-              onChange={(e) => setPlots(Number(e.target.value))}
-              className="w-full border rounded-xl p-3"
-              placeholder="e.g., 1"
-            />
+            <h3 className="text-xl md:text-2xl font-bold text-emerald-800">
+              Buy land & monitor it grow
+            </h3>
+            <p className="text-gray-700">
+              Pick your plots, and track progress in real time.
+            </p>
           </div>
 
-          <div>
-            <label className="block mb-2 font-semibold text-gray-800">Acres</label>
-            <input
-              type="number"
-              min={0.1}
-              step={0.1}
-              value={acres}
-              onChange={(e) => setAcres(Number(e.target.value))}
-              className="w-full border rounded-xl p-3"
-              placeholder="e.g., 0.5"
-            />
-          </div>
-
-          <button
-            type="submit"
-            className="md:col-span-2 bg-green-700 text-white font-semibold px-8 py-4 rounded-2xl hover:bg-green-800 transition"
+          <a
+            href="https://suprefarmapp.netlify.app/login"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center rounded-full px-6 py-3 font-semibold text-white bg-emerald-600 hover:bg-emerald-700 shadow-sm transition"
           >
-            Acquire Your Plot
-          </button>
-        </form>
-      </section>
-
-      {/* Benefits Section */}
-      <section className="py-16 px-6 md:px-12 max-w-4xl mx-auto mt-12 bg-white rounded-xl shadow-md">
-        <h2 className="text-3xl font-bold text-center mb-8 text-green-800">
-          Benefits of Co-Owning with SupreFarm
-        </h2>
-        <ul className="grid grid-cols-1 md:grid-cols-2 gap-6 text-gray-700">
-          <li>✅ Affordable Entry: Start from as little as ₦100,000 / $100</li>
-          <li>✅ Verified Ownership: Digital and secure land documents</li>
-          <li>✅ Passive Income: Structured seasonal returns</li>
-          <li>✅ Climate-Smart Farming: Sustainable agricultural practices</li>
-          <li>✅ Community Impact: Empower local farmers & women</li>
-          <li>✅ Diaspora Friendly: Manage investments online from anywhere</li>
-        </ul>
-        {/* Optional: make this section’s CTA lead to payment too */}
-        <div className="text-center mt-10">
-          <button
-            onClick={() => goToPayment("pool")}
-            className="inline-block px-6 py-3 rounded-full font-semibold shadow-md bg-yellow-400 text-green-900 border-2 border-yellow-400 hover:bg-yellow-300"
-          >
-            Start Now
-          </button>
+            Buy a Plot Now
+          </a>
         </div>
       </section>
 
       {/* Outreach / Audience Segments (whole card clickable) */}
+
       <section className="py-16 px-6 md:px-12">
         <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
-          {outreachBoxes.map((box, idx) => (
-            <div
-              key={idx}
-              role="button"
-              tabIndex={0}
-              onKeyDown={(e) => keyActivate(e, () => goToPayment(box.mode))}
-              onClick={() => goToPayment(box.mode)}
-              aria-label={`${box.cta} — goes to payment`}
-              className={`${box.bgColor} p-8 rounded-xl shadow-lg cursor-pointer transition hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-green-600`}
-            >
-              <h2 className={`text-2xl font-semibold mb-4 ${box.textColor}`}>{box.title}</h2>
-              <p className={`text-lg mb-6 ${box.textColor} opacity-90`}>{box.description}</p>
+          {outreachBoxes.map((box, idx) => {
+            const link = `${APP_URL}?mode=${box.mode}`;
+            return (
+              <a
+                key={idx}
+                href={link}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${box.cta} — opens Suprefarm app`}
+                className={`${box.bgColor} p-8 rounded-xl shadow-lg transition hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-green-600 block`}
+              >
+                <h2 className={`text-2xl font-semibold mb-4 ${box.textColor}`}>
+                  {box.title}
+                </h2>
+                <p className={`text-lg mb-6 ${box.textColor} opacity-90`}>
+                  {box.description}
+                </p>
 
-              <div>
                 <span
-                  className={`inline-block px-6 py-3 rounded-full font-semibold shadow-md ${
+                  className={`inline-block px-6 py-3 rounded-full font-semibold shadow-md border ${
                     box.bgColor === "bg-white"
-                      ? "bg-green-700 text-white border-2 border-green-700"
-                      : "bg-yellow-400 text-green-900 border-2 border-yellow-400"
+                      ? "bg-green-700 text-white border-green-700 hover:bg-green-600"
+                      : "bg-yellow-400 text-green-900 border-yellow-400 hover:bg-yellow-300"
                   }`}
                 >
                   {box.cta}
                 </span>
-              </div>
-            </div>
-          ))}
+              </a>
+            );
+          })}
         </div>
       </section>
 
@@ -229,7 +201,12 @@ export default function WorkWithUs() {
               "Seasonal Returns",
               "Diaspora Friendly",
             ];
-            const icons = [<ShieldCheck key="a" />, <Users key="b" />, <BarChart3 key="c" />, <Globe key="d" />];
+            const icons = [
+              <ShieldCheck key="a" />,
+              <Users key="b" />,
+              <BarChart3 key="c" />,
+              <Globe key="d" />,
+            ];
             const descriptions = [
               "Every co-ownership project comes with clear legal documentation, tech-enabled onboarding, and real-time monitoring so you always know where your money is and how it’s growing.",
               "We channel resources into local initiatives—empowering women, supporting smallholder farmers, and strengthening food security across communities.",
@@ -257,7 +234,9 @@ export default function WorkWithUs() {
                     {icons[i]}
                     {titles[i]}
                   </h3>
-                  <p className="text-gray-700 leading-relaxed">{descriptions[i]}</p>
+                  <p className="text-gray-700 leading-relaxed">
+                    {descriptions[i]}
+                  </p>
                 </div>
               </div>
             );
@@ -270,29 +249,42 @@ export default function WorkWithUs() {
         <div className="max-w-5xl mx-auto text-center space-y-8">
           <blockquote className="max-w-3xl mx-auto text-center text-2xl font-medium text-gray-800 leading-relaxed border-l-4 border-green-600 pl-6 italic">
             “At Suprefarm, we believe farming should go beyond cultivation —
-            it’s about empowering people, regenerating nature, and securing a sustainable future.”
+            it’s about empowering people, regenerating nature, and securing a
+            sustainable future.”
           </blockquote>
-          <button
-            onClick={() => goToPayment("pool")}
-            className="inline-block px-6 py-3 rounded-full font-semibold shadow-md bg-yellow-400 text-green-900 border-2 border-yellow-400 hover:bg-yellow-300"
+
+          <Link
+            to="/projects"
+            aria-label="Browse farm opportunities"
+            className="inline-flex items-center gap-2 px-7 py-3 rounded-xl
+             bg-emerald-600 text-white font-semibold shadow-sm
+             hover:bg-emerald-700 transition
+             focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-700/50"
           >
-            Continue to Payment
-          </button>
+            Explore Projects
+            <ArrowRight className="h-4 w-4" />
+          </Link>
         </div>
       </section>
 
       {/* Final CTA */}
       <section className="bg-green-50 py-16 px-6 md:px-12 text-center">
-        <h2 className="text-3xl font-bold mb-4">Ready to partner for lasting impact?</h2>
+        <h2 className="text-3xl font-bold mb-4">
+          Ready to partner for lasting impact?
+        </h2>
         <p className="text-gray-700 mb-6">
-          Contact us today to co-design your climate solutions with transparency and integrity at the core.
+          Contact us today to co-design your climate solutions with transparency
+          and integrity at the core.
         </p>
-        <button
-          onClick={() => goToPayment("acquire")}
-          className="bg-green-700 text-white px-8 py-3 rounded-full font-semibold hover:bg-green-800 transition inline-block"
+
+        <a
+          href="https://suprefarmapp.netlify.app/login"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center justify-center rounded-full px-6 py-3 font-semibold text-white bg-emerald-600 hover:bg-emerald-700 shadow-sm transition"
         >
           Secure Your Land
-        </button>
+        </a>
       </section>
     </main>
   );

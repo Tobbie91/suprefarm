@@ -11,6 +11,11 @@ import IloraFarm from "./pages/ilora-farm";
 import AuthPage from "./pages/AuthPage";
 import PaymentPage from "./pages/PaymentPage";
 import AcquireGate from "./auth/AcquireGate";
+import Ilora from "./pages/Ilora";
+import Ilaji from "./pages/Ilaji";
+import Iseyin from "./pages/Iseyin";
+import Ghana from "./pages/Ghana";
+import FAQ from "./pages/FAQ";
 
 export default function App() {
   return (
@@ -29,7 +34,11 @@ export default function App() {
 
           <Route path="/projects" element={<Projects />} />
           <Route path="/contact" element={<Contact />} />
-
+          <Route path="/ilora" element={<Ilora />} />
+        <Route path="/ilaji" element={<Ilaji />} />
+        <Route path="/iseyin" element={<Iseyin />} />
+        <Route path="/ghana" element={<Ghana />} />
+        <Route path="/faq" element={<FAQ />} />
           {/* Auth page (UI-only) */}
           <Route path="/auth" element={<AuthPage />} />
 
