@@ -107,54 +107,52 @@ export default function Home() {
             </div>
         <div className="mx-auto flex flex-col md:flex-row items-center justify-between gap-10 w-full max-w-7xl">
           {/* Text */}
-          <div className="w-full text-center md:text-left max-w-3xl">
-            <motion.h1
-              key={`h-${current}`}
-              variants={headline}
-              initial="initial"
-              animate="animate"
-              exit="exit"
-              className="text-4xl md:text-6xl font-extrabold leading-[1.1] tracking-tight break-words"
-            >
-              {slides[current].title.split(" ").map((word, i) => (
-                <span
-                  key={i}
-                  className={i % 2 === 1 ? "text-green-600" : "text-gray-900"}
-                >
-                  {word +
-                    (i < slides[current].title.split(" ").length - 1
-                      ? " "
-                      : "")}
-                </span>
-              ))}
-            </motion.h1>
+          <div className="w-full text-center md:text-left max-w-3xl antialiased">
+  <motion.h1
+    key={`h-${current}`}
+    variants={headline}
+    initial="initial"
+    animate="animate"
+    exit="exit"
+    className="text-4xl md:text-6xl font-semibold md:font-bold leading-[1.1] tracking-tight break-words"
+  >
+    {slides[current].title.split(" ").map((word, i) => (
+      <span
+        key={i}
+        className={i % 2 === 1 ? "text-green-600" : "text-gray-900"}
+      >
+        {word + (i < slides[current].title.split(" ").length - 1 ? " " : "")}
+      </span>
+    ))}
+  </motion.h1>
 
-            <motion.p
-              key={`p-${current}`}
-              variants={blurb}
-              initial="initial"
-              animate="animate"
-              exit="exit"
-              className="mt-5 text-lg md:text-xl text-gray-700 max-w-2xl mx-auto md:mx-0"
-            >
-              {slides[current].text}
-            </motion.p>
+  <motion.p
+    key={`p-${current}`}
+    variants={blurb}
+    initial="initial"
+    animate="animate"
+    exit="exit"
+    className="mt-5 text-lg md:text-xl text-gray-700 max-w-2xl mx-auto md:mx-0"
+  >
+    {slides[current].text}
+  </motion.p>
 
-            <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-              <a
-                href="https://suprefarmapp.netlify.app/login"
-                className="inline-flex items-center justify-center rounded-full px-8 py-3 font-semibold text-white bg-green-600 hover:bg-green-700 transition"
-              >
-                Own Your Land Now
-              </a>
+  <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+    <a
+      href="https://suprefarmapp.netlify.app/login"
+      className="inline-flex items-center justify-center rounded-full px-8 py-3 font-medium text-white bg-green-600 hover:bg-green-700 transition"
+    >
+      Own Your Land Now
+    </a>
 
-              <Link
-                to="/projects"
-                className="inline-flex items-center justify-center rounded-full px-8 py-3 font-semibold text-green-700 bg-white border border-green-600 hover:bg-green-100 transition"
-              >
-                Explore Returns
-              </Link>
-            </div>
+    <Link
+      to="/projects"
+      className="inline-flex items-center justify-center rounded-full px-8 py-3 font-medium text-green-700 bg-white border border-green-600 hover:bg-green-100 transition"
+    >
+      Explore Returns
+    </Link>
+  </div>
+
           </div>
 
           {/* Image */}
