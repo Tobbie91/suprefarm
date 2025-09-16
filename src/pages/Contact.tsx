@@ -23,7 +23,7 @@ export default function Contact() {
             
             <p className="flex items-start gap-3">
               <MapPin className="w-6 h-6 text-green-700 mt-1"/> 
-              Dok-Noord 4, Bus C102 <br/> 9000 Ghent
+              Lagos, Nigeria <br/> 
             </p>
 
             <p className="flex items-center gap-3">
@@ -39,7 +39,7 @@ export default function Contact() {
             </p>
 
             <p className="text-gray-700 mt-6">
-              We’d love to hear from you. Whether you’re an investor, farmer, or community partner — let’s connect.
+              We’d love to hear from you. Whether you’re an investor, farmer, or community partner, let’s connect.
             </p>
           </div>
 
@@ -103,7 +103,7 @@ export default function Contact() {
       <section className="bg-green-50 py-16 px-6">
         <div className="max-w-3xl mx-auto text-center bg-white shadow-md rounded-2xl p-8">
           <h3 className="text-2xl font-bold text-green-800 mb-4">Stay Connected</h3>
-          <p className="text-gray-700 mb-6">Join our journey — subscribe for updates and stories from Suprefarm.</p>
+          <p className="text-gray-700 mb-6">Join our journey, subscribe for updates and stories from Suprefarm.</p>
           <form 
             className="flex flex-col sm:flex-row justify-center items-center gap-4"
             onSubmit={(e) => { e.preventDefault(); alert('Subscribed!'); }}

@@ -15,31 +15,31 @@ const posterStory = green2; // story poster fallback
 const posterAerial = green4; // gallery posters reuse images for now
 const posterProcessing = green2;
 
-// Dummy sources are undefined during dummy mode
+
 
 const farmStoryMp4: string | undefined = undefined;
 const farmAerialMp4: string | undefined = undefined;
 const farmProcessingMp4: string | undefined = undefined;
 
-// ------------------ People Data (placeholders — edit freely) ------------------
-// const teamMembers = [
-//   { name: "Miro Jacob", role: "Co‑founder" },
-//   { name: "Tobbie Tobbie", role: "Project Coordinator Voa Aina" },
-//   { name: "Tobbie Tobbie", role: "Co‑founder" },
-//   { name: "Tobbie Tobbie", role: "Project Lead" },
-//   { name: "Tobbie Tobbie", role: "Project Coordinator EthioTrees" },
-//   { name: "Tobbie Tobbie", role: "Social Impact and Media Officer" },
-//   { name: "Tobbie Tobbie", role: "Project Coordinator Kukumuty" },
-//   { name: "Tobbie Tobbie", role: "Project Coordinator Fes Enying" },
-//   { name: "Tobbie Tobbie", role: "Project Coordinator BoliTrees" },
-// ];
 
 const team = [
-  { name: "Osho Ademola Joel", role: "Founder & CEO" },
-  { name: "Professor Tobi", role: "Chief Science Officer (Agronomy & Climate)" },
-  { name: "Oluwatobi Talabi", role: "Director of Operations" },
+  {
+    name: "Osho Ademola Joel",
+    role: "Founder & CEO",
+    image: "/Coach.jpeg", // Replace with actual image URL or path
+  },
+  {
+    name: "Professor Tobi",
+    role: "Chief Science Officer (Agronomy & Climate)",
+    image: "/prof.png", // Replace with actual image URL or path
+  },
+  {
+    name: "Oluwatobi Talabi",
+    role: "Director of Operations",
+    image: "/Tobi.jpeg", // Replace with actual image URL or path
+  },
 ];
-;
+
 
 /**
  * ABOUT — Redesigned with Video Strategy
@@ -212,24 +212,33 @@ export default function About() {
 
       {/* {================= TEAM ================= */}
       <section className="py-12 px-6 md:px-12 bg-white">
-        <div className="max-w-6xl mx-auto">
-          <h3 className="text-2xl font-bold text-center mb-8 text-gray-900">
-            Our Team
-          </h3>
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
-            {team.map((a, idx) => (
-              <div
-                key={idx}
-                className="text-center rounded-2xl p-6 bg-white border border-gray-200 shadow-sm"
-              >
-                <div className="h-20 w-20 rounded-full mx-auto mb-3 bg-gray-100 border border-gray-200" />
-                <h4 className="font-semibold text-gray-900">{a.name}</h4>
-                <p className="text-sm text-gray-600">{a.role}</p>
-              </div>
-            ))}
+  <div className="max-w-6xl mx-auto">
+    <h3 className="text-2xl font-bold text-center mb-8 text-gray-900">
+      Our Team
+    </h3>
+    <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
+      {team.map((a, idx) => (
+        <div
+          key={idx}
+          className="text-center rounded-2xl p-6 bg-white border border-gray-200 shadow-sm"
+        >
+          {/* Team Image */}
+          <div className="h-20 w-20 rounded-full mx-auto mb-3 overflow-hidden">
+            <img
+              src={a.image} // Use the image path from the array
+              alt={a.name}
+              className="w-full h-full object-cover"
+            />
           </div>
+          {/* Team Name and Role */}
+          <h4 className="font-semibold text-gray-900">{a.name}</h4>
+          <p className="text-sm text-gray-600">{a.role}</p>
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
+
 
       {/* ================= CTA =================} */}
       <section

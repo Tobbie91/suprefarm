@@ -16,11 +16,14 @@ import Ilaji from "./pages/Ilaji";
 import Iseyin from "./pages/Iseyin";
 import Ghana from "./pages/Ghana";
 import FAQ from "./pages/FAQ";
+import { QuickActions } from "./components/quickctions";
 
 export default function App() {
   return (
     <BrowserRouter>
-      <a href="#main" className="sr-only focus:not-sr-only">Skip to content</a>
+      <a href="#main" className="sr-only focus:not-sr-only">
+        Skip to content
+      </a>
       <Navbar />
       <main id="main">
         <Routes>
@@ -35,10 +38,10 @@ export default function App() {
           <Route path="/projects" element={<Projects />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/ilora" element={<Ilora />} />
-        <Route path="/ilaji" element={<Ilaji />} />
-        <Route path="/iseyin" element={<Iseyin />} />
-        <Route path="/ghana" element={<Ghana />} />
-        <Route path="/faq" element={<FAQ />} />
+          <Route path="/ilaji" element={<Ilaji />} />
+          <Route path="/iseyin" element={<Iseyin />} />
+          <Route path="/ghana" element={<Ghana />} />
+          <Route path="/faq" element={<FAQ />} />
           {/* Auth page (UI-only) */}
           <Route path="/auth" element={<AuthPage />} />
 
@@ -56,8 +59,8 @@ export default function App() {
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>
+      <QuickActions />
       <Footer />
     </BrowserRouter>
   );
 }
-

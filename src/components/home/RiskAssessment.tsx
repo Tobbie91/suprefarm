@@ -68,7 +68,14 @@ export default function RiskMapSuprefarm() {
 
   return (
     <section className="relative py-14 px-6 md:px-12 bg-gradient-to-b from-emerald-50/40 to-white">
-        
+       <h1 className="mt-3 text-xl md:text-2xl font-extrabold tracking-tight mb-5">
+    <span className="bg-gradient-to-r from-emerald-600 via-emerald-500 to-lime-500 bg-clip-text text-transparent">
+    Risk Monitoring Map
+    </span>
+  </h1>
+          {/* <div className="inline-flex items-center gap-2 rounded-full border border-green-400 bg-green-50 px-3 py-1 text-green-700 text-sm font-medium mb-2 ">
+    Expanding Impact
+  </div> */}
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
         {/* LEFT: Map card */}
         <div className="rounded-3xl bg-white shadow-xl border border-gray-100 overflow-hidden">
@@ -178,59 +185,57 @@ export default function RiskMapSuprefarm() {
 
         {/* RIGHT: narrative & KPIs */}
         <div>
-          <div className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-emerald-700 text-sm font-medium mb-2">
-            Expanding Impact
+
+  <div className="order-1 md:order-2">
+    <div className="space-y-4">
+      {[
+        {
+          icon: "🌱",
+          title: "Instant Ownership Registration",
+          desc: "Digital onboarding with KYC, e-signatures, and immediate issuance of ownership certificates.",
+        },
+        {
+          icon: "🗂️",
+          title: "Digital Title Verification",
+          desc: "Integration with Nigeria and Ghana’s land registries to verify farmland before allocation.",
+        },
+        {
+          icon: "💰",
+          title: "Automated Ground Rent Billing",
+          desc: "In-app alerts and auto-generated invoices linked to secure payment gateways.",
+        },
+        {
+          icon: "🔗",
+          title: "Blockchain Record-Keeping",
+          desc: "Immutable ownership and transaction history to prevent disputes.",
+        },
+      ].map((item, idx) => (
+        <motion.div
+          key={idx}
+          className="rounded-2xl p-5 bg-gradient-to-br from-green-700 to-green-800 text-white shadow-xl border border-white/10 flex items-start gap-4"
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.25 }}
+          transition={{ duration: 0.45, delay: idx * 0.05 }}
+        >
+          <div className="text-2xl leading-none">{item.icon}</div>
+          <div>
+            <h4 className="font-semibold text-green-300 mb-1">
+              {item.title}
+            </h4>
+            <p className="text-white/95">{item.desc}</p>
           </div>
-          <div className="order-1 md:order-2">
-            <div className="space-y-4">
-              {[
-                {
-                  icon: "🌱",
-                  title: "Instant Ownership Registration",
-                  desc: "Digital onboarding with KYC, e-signatures, and immediate issuance of ownership certificates.",
-                },
-                {
-                  icon: "🗂️",
-                  title: "Digital Title Verification",
-                  desc: "Integration with Nigeria and Ghana’s land registries to verify farmland before allocation.",
-                },
-                {
-                  icon: "💰",
-                  title: "Automated Ground Rent Billing",
-                  desc: "In-app alerts and auto-generated invoices linked to secure payment gateways.",
-                },
-                {
-                  icon: "🔗",
-                  title: "Blockchain Record-Keeping",
-                  desc: "Immutable ownership and transaction history to prevent disputes.",
-                },
-              ].map((item, idx) => (
-                <motion.div
-                  key={idx}
-                  className="rounded-2xl p-5 bg-gradient-to-br from-emerald-700 to-emerald-800 text-white shadow-xl border border-white/10 flex items-start gap-4"
-                  initial={{ opacity: 0, y: 16 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.25 }}
-                  transition={{ duration: 0.45, delay: idx * 0.05 }}
-                >
-                  <div className="text-2xl leading-none">{item.icon}</div>
-                  <div>
-                    <h4 className="font-semibold text-amber-300 mb-1">
-                      {item.title}
-                    </h4>
-                    <p className="text-white/95">{item.desc}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-            <div className="mt-6">
-              <CTA to="/what-we-do" variant="link">
-                Learn more <ArrowRight className="ml-2 h-4 w-4" />
-              </CTA>
-            </div>
-          </div>
-         
-        </div>
+        </motion.div>
+      ))}
+    </div>
+    <div className="mt-6">
+      <CTA to="/what-we-do" variant="link">
+        Learn more <ArrowRight className="ml-2 h-4 w-4" />
+      </CTA>
+    </div>
+  </div>
+</div>
+
       </div>
     </section>
   );

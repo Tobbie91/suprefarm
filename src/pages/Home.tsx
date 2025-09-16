@@ -1,38 +1,32 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { motion, } from "framer-motion";
+import { motion } from "framer-motion";
 import {
   ArrowRight,
   Leaf,
   ShieldCheck,
   Telescope,
   Handshake,
-  Mail,
-  Phone,
-  MessageCircle,
 } from "lucide-react";
 import green1 from "../assets/images/vid.jpg";
 import green2 from "../assets/images/green12.webp";
 import green3 from "../assets/images/vid.jpg";
-import green6 from "../assets/images/green9.webp";
 import SuprefarmSimulator from "../components/home/simultor";
 import PartnersMarquee from "../components/home/PartnersMarquee";
 import SDGBand from "../components/home/SDGBand";
 import ApproachSection from "../components/home/ApproachSection";
 import CustomerJourney from "../components/CustomerJourney";
-import RiskMap from "../components/home/RiskMp";
-
-
+import RiskMapSuprefarm from "../components/home/RiskAssessment";
 
 const slides = [
   {
     image: green1,
-    title: "Be part of the climate solution",
+    title: "Co-own Climate-Smart Palmtree Farmland",
     text: "Build wealth and resilience together. Choose plots, empower farmers with training and inputs, and receive seasonal updates and returns with transparent, AI-powered reporting.",
   },
   {
     image: green2,
-    title: "Co-own Climate-Smart Palmtree Farmland",
+    title: "Be part of the climate solution",
     text: "Step into ownership of thriving palm tree farmland in Ilora. Create jobs, strengthen food security, and track impact via satellite + AI.",
   },
   {
@@ -41,21 +35,6 @@ const slides = [
     text: "Our farms deliver returns while regenerating soil, restoring forests, and improving ecosystems.",
   },
 ];
-
-const impactData = [
-  {
-    title: "60 Acres",
-    subtitle: "of productive palm tree farmland acquired in Ilora",
-  },
-  { title: "1200 Co-Owners", subtitle: "already enrolled in our first project" },
-  { title: "20 Jobs Created", subtitle: "for local farmers and workers" },
-  {
-    title: "100% Transparency",
-    subtitle: "through satellite and AI monitoring",
-  },
-];
-
-
 
 export default function Home() {
   const [current, setCurrent] = useState(0);
@@ -95,67 +74,74 @@ export default function Home() {
     exit: { opacity: 0, y: -10, transition: { duration: 0.3, ease: EASE_OUT } },
   };
 
+  const goToSlide = () => setCurrent((prev) => (prev + 1) % slides.length);
+
+
+
   return (
     <main className="bg-white text-gray-900">
       {/* =============== HERO =============== */}
+
       <section
         className="relative min-h-[70vh] py-16 md:py-20 px-6 bg-gradient-to-br from-white via-green-50/30 to-emerald-50/50"
         aria-label="Hero"
       >
         <div className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-white/80 px-3 lg:ml-[4em] py-1 text-emerald-700 text-sm font-medium mx-auto md:mx-0">
-              <span className="inline-block h-2 w-2 rounded-full bg-emerald-500" /> Climate Smart farm
-            </div>
+          <span className="inline-block h-2 w-2 rounded-full bg-emerald-500" />{" "}
+          Climate Smart farm
+        </div>
+
         <div className="mx-auto flex flex-col md:flex-row items-center justify-between gap-10 w-full max-w-7xl">
-          {/* Text */}
           <div className="w-full text-center md:text-left max-w-3xl antialiased">
-  <motion.h1
-    key={`h-${current}`}
-    variants={headline}
-    initial="initial"
-    animate="animate"
-    exit="exit"
-    className="text-4xl md:text-6xl font-semibold md:font-bold leading-[1.1] tracking-tight break-words"
-  >
-    {slides[current].title.split(" ").map((word, i) => (
-      <span
-        key={i}
-        className={i % 2 === 1 ? "text-green-600" : "text-gray-900"}
-      >
-        {word + (i < slides[current].title.split(" ").length - 1 ? " " : "")}
-      </span>
-    ))}
-  </motion.h1>
+            <motion.h1
+              key={`h-${current}`}
+              variants={headline}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              className="text-4xl md:text-6xl font-semibold md:font-bold leading-[1.1] tracking-tight break-words"
+            >
+              {slides[current].title.split(" ").map((word, i) => (
+                <span
+                  key={i}
+                  className={i % 2 === 1 ? "text-green-600" : "text-gray-900"}
+                >
+                  {word +
+                    (i < slides[current].title.split(" ").length - 1
+                      ? " "
+                      : "")}
+                </span>
+              ))}
+            </motion.h1>
 
-  <motion.p
-    key={`p-${current}`}
-    variants={blurb}
-    initial="initial"
-    animate="animate"
-    exit="exit"
-    className="mt-5 text-lg md:text-xl text-gray-700 max-w-2xl mx-auto md:mx-0"
-  >
-    {slides[current].text}
-  </motion.p>
+            <motion.p
+              key={`p-${current}`}
+              variants={blurb}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              className="mt-5 text-lg md:text-xl text-gray-700 max-w-2xl mx-auto md:mx-0"
+            >
+              {slides[current].text}
+            </motion.p>
 
-  <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-    <a
-      href="https://suprefarmapp.netlify.app/login"
-      className="inline-flex items-center justify-center rounded-full px-8 py-3 font-medium text-white bg-green-600 hover:bg-green-700 transition"
-    >
-      Own Your Land Now
-    </a>
+            <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+              <a
+                href="https://suprefarmapp.netlify.app/login"
+                className="inline-flex items-center justify-center rounded-full px-8 py-3 font-medium text-white bg-green-600 hover:bg-green-700 transition"
+              >
+                Own Your Land Now
+              </a>
 
-    <Link
-      to="/projects"
-      className="inline-flex items-center justify-center rounded-full px-8 py-3 font-medium text-green-700 bg-white border border-green-600 hover:bg-green-100 transition"
-    >
-      Explore Returns
-    </Link>
-  </div>
-
+              <Link
+                to="/projects"
+                className="inline-flex items-center justify-center rounded-full px-8 py-3 font-medium text-green-700 bg-white border border-green-600 hover:bg-green-100 transition"
+              >
+                Explore Returns
+              </Link>
+            </div>
           </div>
 
-          {/* Image */}
           <div className="relative w-full max-w-md md:max-w-lg">
             <div className="absolute inset-0 rounded-2xl pointer-events-none bg-gradient-to-b from-black/40 via-transparent to-transparent" />
             <img
@@ -165,14 +151,28 @@ export default function Home() {
             />
           </div>
         </div>
+
+        {/* Navigation Dots */}
+        <div className="flex justify-center gap-2 mt-6">
+          {slides.map((_, index) => (
+            <div
+              key={index}
+              onClick={() => goToSlide()} 
+              className={`h-2 w-2 rounded-full cursor-pointer ${
+                current === index ? "bg-emerald-600" : "bg-gray-300"
+              }`}
+            />
+          ))}
+        </div>
       </section>
 
       {/* =============== WHO WE ARE =============== */}
+
       <section
         id="who-we-are"
         className="py-20 px-6 md:px-12 bg-white scroll-mt-24"
       >
-        <div className="max-w-7xl mx-auto text-center">
+        <div className="max-w-7xl mx-auto text-center mt-[-4em]">
           {/* Heading */}
           <h3 className="text-4xl md:text-5xl font-bold text-gray-800 mb-8">
             Who We Are
@@ -241,193 +241,129 @@ export default function Home() {
         </div>
       </section>
 
-      {/* =============== WHAT WE DO (Approach) =============== */}
       <ApproachSection />
 
       {/* =============== WHAT WE DO (Features) =============== */}
 
-
-       {/* <section className="py-20 px-6 md:px-12 bg-white">
-        <h3 className="text-3xl md:text-4xl font-bold mb-6 text-emerald-800 text-center">
+      <section className="py-20 px-6 md:px-12 bg-white mt-[]">
+        <h3 className="text-3xl md:text-5xl font-bold mb-6 text-emerald-800 text-center">
           Why Suprefarm?
         </h3>
+        {/* <h3 className="text-3xl md:text-4xl font-bold mb-6 text-emerald-800 text-center">
+   
+        </h3> */}
+
         <p className="text-lg text-gray-700 mb-8 text-center">
           We manage climate-smart Palmtree farms and connect you to the process
           every step of the way.
         </p>
+
         <RiskMapSuprefarm />
-      </section> */}
-      <RiskMap/>
-      <section className="py-20 px-6 md:px-12 bg-white">
-        <h3 className="text-3xl md:text-4xl font-bold mb-6 text-emerald-800 text-center">
-          Why Suprefarm?
-        </h3>
-        <p className="text-lg text-gray-700 mb-8 text-center">
-          We manage climate-smart Palmtree farms and connect you to the process every
-          step of the way.
-        </p>
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-start">
-          <div className="relative order-2 md:order-1">
-            <img
-              src={green6}
-              alt="Farms and Impact"
-              className="w-full lg:h-[70vh] h-auto rounded-3xl shadow-2xl"
-            />
-            <div className="absolute inset-0 rounded-3xl bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
-          </div>
-          <div className="order-1 md:order-2">
-            <div className="space-y-4">
-              {[
-                {
-                  icon: "🌱",
-                  title: "Instant Ownership Registration",
-                  desc: "Digital onboarding with KYC, e-signatures, and immediate issuance of ownership certificates.",
-                },
-                {
-                  icon: "🗂️",
-                  title: "Digital Title Verification",
-                  desc: "Integration with Nigeria and Ghana’s land registries to verify farmland before allocation.",
-                },
-                {
-                  icon: "💰",
-                  title: "Automated Ground Rent Billing",
-                  desc: "In-app alerts and auto-generated invoices linked to secure payment gateways.",
-                },
-                {
-                  icon: "🔗",
-                  title: "Blockchain Record-Keeping",
-                  desc: "Immutable ownership and transaction history to prevent disputes.",
-                },
-              ].map((item, idx) => (
-                <motion.div
-                  key={idx}
-                  className="rounded-2xl p-5 bg-gradient-to-br from-emerald-700 to-emerald-800 text-white shadow-xl border border-white/10 flex items-start gap-4"
-                  initial={{ opacity: 0, y: 16 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.25 }}
-                  transition={{ duration: 0.45, delay: idx * 0.05 }}
-                >
-                  <div className="text-2xl leading-none">{item.icon}</div>
-                  <div>
-                    <h4 className="font-semibold text-amber-300 mb-1">
-                      {item.title}
-                    </h4>
-                    <p className="text-white/95">{item.desc}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-            <div className="mt-6">
-              <CTA to="/what-we-do" variant="link">
-                Learn more <ArrowRight className="ml-2 h-4 w-4" />
-              </CTA>
-            </div>
-          </div>
-        </div>
       </section>
 
       <SuprefarmSimulator />
 
       {/* =============== BUY LAND NOW (selector) =============== */}
       <section
-  id="buy"
-  className="py-8 md:py-10 px-6 md:px-12 bg-white border-b border-gray-100"
->
-  <div className="max-w-3xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-    <div>
-      <h3 className="text-xl md:text-2xl font-bold text-emerald-800">
-        Buy land & monitor it grow
-      </h3>
-      <p className="text-gray-700">Pick your plots, and track progress in real time.</p>
-    </div>
+        id="buy"
+        className="py-8 md:py-10 px-6 md:px-12 bg-white border-b border-gray-100"
+      >
+        <div className="max-w-3xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+          <div>
+            <h3 className="text-xl md:text-2xl font-bold text-emerald-800">
+              Buy land & monitor it grow
+            </h3>
+            <p className="text-gray-700">
+              Pick your plots, and track progress in real time.
+            </p>
+          </div>
 
-    <a
-      href="https://suprefarmapp.netlify.app/login"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="inline-flex items-center justify-center rounded-full px-6 py-3 font-semibold text-white bg-emerald-600 hover:bg-emerald-700 shadow-sm transition"
+          <a
+            href="https://suprefarmapp.netlify.app/login"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center rounded-full px-6 py-3 font-semibold text-white bg-emerald-600 hover:bg-emerald-700 shadow-sm transition"
+          >
+            Buy a Plot Now
+          </a>
+        </div>
+      </section>
+
+      <CustomerJourney />
+
+      <PartnersMarquee />
+      <SDGBand />
+
+      {/* <QuickActions /> */}
+      {/* =============== CTA =============== */}
+      <section className="py-20 px-6 md:px-12 bg-white text-slate-900 text-center shadow-md">
+  <h3 className="text-3xl md:text-4xl font-bold">
+    Join Us in Growing a Greener Future
+  </h3>
+  <p className="max-w-2xl mx-auto mt-3 opacity-95">
+    Become part of our community of climate-conscious investors and watch
+    your impact grow.
+  </p>
+  <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center ">
+    {/* Contact Us button styled like a button */}
+    <Link
+      to="/contact"
+      className="inline-flex items-center justify-center px-8 py-3 rounded-full font-semibold text-white bg-emerald-600 hover:bg-emerald-700 shadow-md transition"
     >
-      Buy a Plot Now
-    </a>
+      Contact Us
+    </Link>
+    
+    {/* Learn More button */}
+    <CTA
+      to="/about"
+      variant="ghost"
+      className="text-slate-900 border-2 border-slate-700/60 hover:border-slate-700"
+    >
+      Learn More
+    </CTA>
   </div>
 </section>
 
-<CustomerJourney/>
-      {/* =============== IMPACT COUNTERS =============== */}
-      <section className="py-18 md:py-20 px-6 md:px-12 bg-white">
-        <div className="max-w-6xl mx-auto text-center">
-          <h3 className="text-4xl font-semibold text-gray-800 mb-12">
-            Impact Counters
-          </h3>
-          <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-8">
-            {impactData.map((item, idx) => (
-              <motion.div
-                key={idx}
-                className="rounded-xl bg-gradient-to-br from-green-500 to-green-600 p-6 shadow-lg text-white border border-transparent hover:shadow-2xl transition-all duration-300 ease-in-out transform hover:scale-105"
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.45, delay: idx * 0.05 }}
-              >
-                <div className="text-3xl font-bold text-yellow-200">
-                  {item.title}
-                </div>
-                <p className="mt-2 text-sm opacity-90">{item.subtitle}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-      <PartnersMarquee />
-      <SDGBand />
-      {/* =============== TRUST BAR =============== */}
-      <section className="py-12 px-6 md:px-12 bg-white">
-        <div className="max-w-6xl mx-auto grid sm:grid-cols-2 md:grid-cols-4 gap-4">
-          <TrustPill
-            icon={<ShieldCheck className="h-5 w-5" />}
-            text="KYC + E-sign Onboarding"
-          />
-          <TrustPill
-            icon={<ShieldCheck className="h-5 w-5" />}
-            text="Title Verification"
-          />
-          <TrustPill
-            icon={<ShieldCheck className="h-5 w-5" />}
-            text="Secure Payments"
-          />
-          <TrustPill
-            icon={<ShieldCheck className="h-5 w-5" />}
-            text="Transparent Reporting"
-          />
-        </div>
-      </section>
-
-      {/* Floating quick actions */}
-      <QuickActions />
-      {/* =============== CTA =============== */}
-      <section className="py-20 px-6 md:px-12 bg-emerald-700 text-white text-center">
-        <h3 className="text-3xl md:text-4xl font-bold">
-          Join Us in Growing a Greener Future
-        </h3>
-        <p className="max-w-2xl mx-auto mt-3 opacity-95">
-          Become part of our community of climate-conscious investors and watch
-          your impact grow.
-        </p>
-        <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-          <CTA to="/contact" variant="inverted">
-            Contact Us
-          </CTA>
-          <CTA
-            to="/about"
-            variant="ghost"
-            className="text-white border-white/60 hover:border-white"
-          >
-            Learn More
-          </CTA>
-        </div>
-      </section>
     </main>
   );
+}
+
+function CTA({
+  to,
+  children,
+  variant = "primary",
+  className = "",
+}: {
+  to: string;
+  children: React.ReactNode;
+  variant?: "primary" | "ghost" | "link" | "inverted";
+  className?: string;
+}) {
+  const base =
+    "inline-flex items-center justify-center rounded-2xl px-6 py-3 font-semibold transition-colors focus:outline-none focus-visible:ring-2";
+  const styles: Record<string, string> = {
+    primary: `${base} bg-emerald-600 text-white hover:bg-emerald-700 shadow-lg shadow-emerald-600/30 focus-visible:ring-emerald-700/60`,
+    ghost: `${base} border border-gray-300 text-gray-900 hover:bg-gray-100 focus-visible:ring-emerald-700/40`,
+    link: `${base} p-0 h-auto text-emerald-700 hover:text-emerald-800`,
+    inverted: `${base} bg-white text-emerald-700 hover:bg-gray-100 focus-visible:ring-white/70`,
+  };
+  return (
+    <Link to={to} className={`${styles[variant]} ${className}`}>
+      {children}
+    </Link>
+  );
+}
+
+function usePrefersReducedMotion() {
+  const [reduced, setReduced] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const onChange = () => setReduced(mq.matches);
+    onChange();
+    mq.addEventListener?.("change", onChange);
+    return () => mq.removeEventListener?.("change", onChange);
+  }, []);
+  return reduced;
 }
 
 {
@@ -906,41 +842,6 @@ export default function Home() {
 //   );
 // }
 
-function TrustPill({ icon, text }: { icon: React.ReactNode; text: string }) {
-  return (
-    <div className="flex items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-2 shadow-sm">
-      <span className="text-emerald-700">{icon}</span>
-      <span className="text-sm font-medium text-gray-700">{text}</span>
-    </div>
-  );
-}
-
-function CTA({
-  to,
-  children,
-  variant = "primary",
-  className = "",
-}: {
-  to: string;
-  children: React.ReactNode;
-  variant?: "primary" | "ghost" | "link" | "inverted";
-  className?: string;
-}) {
-  const base =
-    "inline-flex items-center justify-center rounded-2xl px-6 py-3 font-semibold transition-colors focus:outline-none focus-visible:ring-2";
-  const styles: Record<string, string> = {
-    primary: `${base} bg-emerald-600 text-white hover:bg-emerald-700 shadow-lg shadow-emerald-600/30 focus-visible:ring-emerald-700/60`,
-    ghost: `${base} border border-gray-300 text-gray-900 hover:bg-gray-100 focus-visible:ring-emerald-700/40`,
-    link: `${base} p-0 h-auto text-emerald-700 hover:text-emerald-800`,
-    inverted: `${base} bg-white text-emerald-700 hover:bg-gray-100 focus-visible:ring-white/70`,
-  };
-  return (
-    <Link to={to} className={`${styles[variant]} ${className}`}>
-      {children}
-    </Link>
-  );
-}
-
 // function TeamCard({ person, index }: { person: Person; index: number }) {
 //   const pastel = [
 //     "bg-emerald-50 text-emerald-700 border-emerald-100",
@@ -1063,47 +964,3 @@ function CTA({
 //     </div>
 //   );
 // }
-
-function QuickActions() {
-  return (
-    <div className="fixed bottom-4 right-4 z-40 flex flex-col gap-2">
-      <a
-        href="tel:+2348135169538"
-        className="rounded-full bg-white shadow-lg border border-gray-200 p-3 hover:shadow-xl"
-        aria-label="Call us"
-      >
-        <Phone className="h-5 w-5 text-emerald-700" />
-      </a>
-      <a
-        href="https://wa.me/2348135169538?text=Hi%20Suprefarm"
-        className="rounded-full bg-white shadow-lg border border-gray-200 p-3 hover:shadow-xl"
-        aria-label="WhatsApp"
-      >
-        <MessageCircle className="h-5 w-5 text-emerald-700" />
-      </a>
-      <Link
-        to="/contact"
-        className="rounded-full bg-emerald-600 shadow-lg p-3 hover:bg-emerald-700"
-        aria-label="Contact form"
-      >
-        <Mail className="h-5 w-5 text-white" />
-      </Link>
-    </div>
-  );
-}
-
-/* ===========================================
-   HOOKS
-=========================================== */
-
-function usePrefersReducedMotion() {
-  const [reduced, setReduced] = useState(false);
-  useEffect(() => {
-    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const onChange = () => setReduced(mq.matches);
-    onChange();
-    mq.addEventListener?.("change", onChange);
-    return () => mq.removeEventListener?.("change", onChange);
-  }, []);
-  return reduced;
-}

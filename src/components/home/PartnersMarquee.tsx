@@ -1,8 +1,8 @@
 const logos = [
-  { alt: "Supretech", src: "/partners/leadway.svg" },
-  { alt: "Wesssist Virtul", src: "/partners/gigm.svg" },
-  { alt: "Olaronke", src: "/partners/gain.svg" },
-  { alt: "Beafrique", src: "/partners/mtn.svg" },
+  { alt: "Supretech", src: "/supreteclogo.jpeg" },
+  { alt: "Wesssist Virtul", src: "/fvebhite.jpeg" },
+  { alt: "Olaronke", src: "/ronkelogo.jpeg" },
+  { alt: "Beafrique", src: "/befrique.jpeg" },
 ];
 
 export default function PartnersMarquee() {
@@ -14,23 +14,23 @@ export default function PartnersMarquee() {
 
         {/* Thin pill strip with scrolling logos */}
         <div className="mt-8">
-          <div className="group relative mx-auto max-w-6xl overflow-hidden  bg-gray-50/80 backdrop-blur-sm">
+          <div className="group relative mx-auto max-w-6xl overflow-hidden bg-gray-50/80 backdrop-blur-sm">
             {/* Edge fades */}
             <div className="pointer-events-none absolute left-0 top-0 h-full w-20 bg-gradient-to-r from-gray-50/90 to-transparent" />
             <div className="pointer-events-none absolute right-0 top-0 h-full w-20 bg-gradient-to-l from-gray-50/90 to-transparent" />
 
             {/* Track */}
-            <div className="marquee flex items-center gap-10 py-4 select-none">
+            <div className="marquee flex items-center gap-16 py-4 select-none">
               {/* Duplicate once for a seamless loop */}
               {[...Array(2)].map((_, loopIdx) => (
-                <div className="flex items-center gap-10" key={loopIdx}>
+                <div className="flex items-center gap-16" key={loopIdx}>
                   {logos.map((logo, i) => (
                     <img
                       key={`${loopIdx}-${i}`}
                       src={logo.src}
                       alt={logo.alt}
                       loading="lazy"
-                      className="h-8 w-auto object-contain grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition"
+                      className="h-20 w-auto object-contain grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition-all duration-300"
                     />
                   ))}
                 </div>

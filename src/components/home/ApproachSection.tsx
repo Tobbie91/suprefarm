@@ -68,10 +68,10 @@ export default function ApproachSection({
   className = "",
 }: ApproachProps) {
   return (
-    <section id={id} className={`relative py-20 px-6 md:px-12 bg-white ${className}`}>
+    <section id={id} className={`relative py-20 px-6 md:px-12 bg-white  ${className}`}>
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-emerald-50/70 via-white to-white" />
 
-      <div className="max-w-7xl mx-auto text-center">
+      <div className="max-w-7xl mx-auto text-center mt-[-4em]">
         <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight tracking-tight">{title}</h2>
         <p className="text-lg md:text-xl text-gray-700 leading-relaxed mt-4 max-w-3xl mx-auto">{blurb}</p>
 

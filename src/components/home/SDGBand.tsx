@@ -7,14 +7,13 @@ import Sdg15 from "../../assets/images/15.png";
 
 type SdgIcon = { id: number; alt: string; src: string };
 const sdgIcons: SdgIcon[] = [
-    { id: 2,  alt: "SDG 2 – Zero Hunger",                                  src: Sdg2  },
-    { id: 5,  alt: "SDG 5 – Gender Equality",                              src: Sdg5  },
-    { id: 8,  alt: "SDG 8 – Decent Work & Economic Growth",                src: Sdg8  },
-    { id: 12, alt: "SDG 12 – Responsible Consumption & Production",        src: Sdg12 },
-    { id: 13, alt: "SDG 13 – Climate Action",                              src: Sdg13 },
-    { id: 15, alt: "SDG 15 – Life on Land",                                src: Sdg15 },
-  ];
-  
+  { id: 2,  alt: "SDG 2 – Zero Hunger",                                  src: Sdg2  },
+  { id: 5,  alt: "SDG 5 – Gender Equality",                              src: Sdg5  },
+  { id: 8,  alt: "SDG 8 – Decent Work & Economic Growth",                src: Sdg8  },
+  { id: 12, alt: "SDG 12 – Responsible Consumption & Production",        src: Sdg12 },
+  { id: 13, alt: "SDG 13 – Climate Action",                              src: Sdg13 },
+  { id: 15, alt: "SDG 15 – Life on Land",                                src: Sdg15 },
+];
 
 export default function SDGBand() {
   return (
@@ -34,20 +33,32 @@ export default function SDGBand() {
 
           {/* Scroll row (mobile) / centered wrap (desktop) */}
           <div className="relative px-4 sm:px-6 py-6">
-            <div className="flex gap-5 sm:gap-6 overflow-x-auto md:overflow-x-visible md:flex-wrap md:justify-center snap-x">
-              {sdgIcons.map((it) => (
-                <div
-                  key={it.id}
-                  className="snap-start shrink-0 rounded-2xl bg-white shadow-[0_1px_0_0_rgba(0,0,0,0.04)] border border-gray-200/70 p-3 sm:p-4 transition-transform hover:-translate-y-0.5 hover:shadow-md"
-                >
-                  <img
-                    src={it.src}
-                    alt={it.alt}
-                    loading="lazy"
-                    className="h-16 w-16 sm:h-20 sm:w-20 object-contain select-none"
-                  />
-                </div>
-              ))}
+            <div className="group relative mx-auto max-w-6xl overflow-hidden p-6">
+              {/* Edge fades */}
+              <div className="pointer-events-none absolute left-0 top-0 h-full w-20 bg-gradient-to-r from-gray-50/90 to-transparent" />
+              <div className="pointer-events-none absolute right-0 top-0 h-full w-20 bg-gradient-to-l from-gray-50/90 to-transparent" />
+
+              {/* Track */}
+              <div className="marquee flex items-center gap-16 py-4 select-none">
+                {/* Duplicate once for a seamless loop */}
+                {[...Array(2)].map((_, loopIdx) => (
+                  <div className="flex items-center gap-16" key={loopIdx}>
+                    {sdgIcons.map((it) => (
+                      <div
+                        key={it.id}
+                        className="snap-start shrink-0 rounded-2xl bg-white shadow-[0_1px_0_0_rgba(0,0,0,0.04)] border border-gray-200/70 p-3 sm:p-4 transition-transform hover:-translate-y-0.5 hover:shadow-md"
+                      >
+                        <img
+                          src={it.src}
+                          alt={it.alt}
+                          loading="lazy"
+                          className="h-16 w-auto object-contain transition-all duration-300"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -57,7 +68,23 @@ export default function SDGBand() {
       <style>{`
         #sdgs .overflow-x-auto { scrollbar-width: none; }
         #sdgs .overflow-x-auto::-webkit-scrollbar { display: none; }
+
+        /* Keyframe animation for continuous scroll */
+        @keyframes scroll-x { 
+          from { transform: translateX(0); }
+          to { transform: translateX(-100%); } /* Scrolls completely out of view */
+        }
+
+        .marquee {
+          width: max-content;
+          animation: scroll-x 22s linear infinite;
+        }
+
+        .group:hover .marquee {
+          animation-play-state: paused;
+        }
       `}</style>
     </section>
   );
 }
+

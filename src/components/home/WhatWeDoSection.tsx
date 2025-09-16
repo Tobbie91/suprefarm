@@ -62,7 +62,6 @@ const DEFAULT_FEATURES: Feature[] = [
     desc: "Immutable ownership and transaction history to prevent disputes.",
   },
 ];
-
 export default function WhatWeDoSection({
   id = "what-we-do",
   imageSrc,
@@ -76,27 +75,27 @@ export default function WhatWeDoSection({
     <section id={id} className="py-16 md:py-20 px-6 md:px-12 bg-white">
       <h3 className="text-3xl md:text-4xl font-extrabold mb-6 text-emerald-800 text-center">{title}</h3>
 
-      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 md:gap-12 items-start">
+      <div className="max-w-6xl mx-auto grid md:grid-cols-12 gap-10 md:gap-12 items-start">
         {/* Media */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.25 }}
           transition={{ duration: 0.5 }}
-          className="relative order-2 md:order-1"
+          className="relative md:col-span-6 lg:col-span-6 order-2 md:order-1 h-full"
         >
-          <div className="relative overflow-hidden rounded-3xl border border-emerald-100 shadow-2xl">
+          <div className="relative overflow-hidden rounded-3xl border border-emerald-100 shadow-2xl h-full">
             {imageSrc ? (
               <img
                 src={imageSrc}
                 alt="Farms and Impact"
-                className="w-full object-cover"
+                className="w-full h-full object-cover"
                 style={{ aspectRatio: "4 / 5" }}
                 loading="lazy"
               />
             ) : (
               <div
-                className="w-full"
+                className="w-full h-full"
                 style={{ aspectRatio: "4 / 5" }}
               >
                 <div className="h-full w-full bg-gradient-to-br from-emerald-100 via-emerald-50 to-white" />
@@ -107,7 +106,7 @@ export default function WhatWeDoSection({
         </motion.div>
 
         {/* Copy & Features */}
-        <div className="order-1 md:order-2">
+        <div className="md:col-span-6 lg:col-span-6 order-1 md:order-2 h-full flex flex-col justify-between">
           <p className="text-lg text-gray-700 mb-6 md:mb-8 max-w-xl">
             {blurb}
           </p>
@@ -144,4 +143,3 @@ export default function WhatWeDoSection({
     </section>
   );
 }
-

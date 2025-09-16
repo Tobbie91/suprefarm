@@ -41,9 +41,9 @@ const outreachBoxes: OutreachBox[] = [
   },
   {
     title: "Join from the Diaspora",
-    description:
-      "Start remotely, co-own verified farmland, and receive transparent updates without being on the ground.",
-    cta: "Start as a Diaspora Investor",
+    description: "Start remotely, co-own verified farmland, and receive transparent updates without being on the ground. Suprefarm allows you to track your farm in real-time.", 
+    // cta: "Start as a Diaspora Investor",
+    cta: "Start Now",
     mode: "pool",
     bgColor: "bg-white",
     textColor: "text-gray-900",
@@ -88,40 +88,41 @@ export default function WorkWithUs() {
     <main className="bg-white text-gray-900">
       {/* Hero Section */}
       <section className="bg-green-900 text-white py-24 px-6 md:px-12 text-center relative mb-[4em]">
-        <div className="max-w-4xl mx-auto">
-          <h1 className="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
-            How <span className="text-yellow-400">It Works</span>
-          </h1>
-          <p className="text-lg md:text-xl opacity-90 mb-10">
-            Pick plots with <span className="font-semibold">Suprefarm</span>,
-            verify ownership, and monitor your farm’s progress, turning
-            <span className="underline decoration-yellow-400">
-              {" "}
-              real impact
-            </span>{" "}
-            into
-            <span className="text-yellow-400 font-medium">
-              {" "}
-              climate-smart results
-            </span>{" "}
-            and shared value.
-          </p>
+  <div className="max-w-4xl mx-auto">
+    <h1 className="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
+      How <span className="text-white">It Works</span>
+    </h1>
+    <p className="text-lg md:text-xl opacity-90 mb-10">
+      Pick plots with <span className="font-semibold">Suprefarm</span>,
+      verify ownership, and monitor your farm’s progress, turning
+      <span className="underline decoration-white">
+        {" "}
+        real impact
+      </span>{" "}
+      into
+      <span className="text-white font-medium">
+        {" "}
+        climate-smart results
+      </span>{" "}
+      and shared value.
+    </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-6 ">
-            <Link
-              to="/projects"
-              aria-label="Browse farm opportunities"
-              className="inline-flex items-center gap-2 px-7 py-3 rounded-xl
-             bg-emerald-600 text-white font-semibold shadow-sm
-             hover:bg-emerald-700 transition
-             focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-700/50"
-            >
-              Browse Farm Opportunities
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-          </div>
-        </div>
-      </section>
+    <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-6">
+      <Link
+        to="/projects"
+        aria-label="Browse farm opportunities"
+        className="inline-flex items-center gap-2 px-7 py-3 rounded-xl
+          bg-emerald-600 text-white font-semibold shadow-sm
+          hover:bg-emerald-700 transition
+          focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-700/50"
+      >
+        Browse Farm Opportunities
+        <ArrowRight className="h-4 w-4" />
+      </Link>
+    </div>
+  </div>
+</section>
+
 
       {/* Investment Selection */}
       <SuprefarmSimulator />
@@ -153,40 +154,38 @@ export default function WorkWithUs() {
 
       {/* Outreach / Audience Segments (whole card clickable) */}
 
-      <section className="py-16 px-6 md:px-12">
-        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
-          {outreachBoxes.map((box, idx) => {
-            const link = `${APP_URL}?mode=${box.mode}`;
-            return (
-              <a
-                key={idx}
-                href={link}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`${box.cta} — opens Suprefarm app`}
-                className={`${box.bgColor} p-8 rounded-xl shadow-lg transition hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-green-600 block`}
-              >
-                <h2 className={`text-2xl font-semibold mb-4 ${box.textColor}`}>
-                  {box.title}
-                </h2>
-                <p className={`text-lg mb-6 ${box.textColor} opacity-90`}>
-                  {box.description}
-                </p>
+      <section className="py-16 px-6 md:px-12 bg-white">
+  <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+    {outreachBoxes.map((box, idx) => {
+      const link = `${APP_URL}?mode=${box.mode}`;
+      return (
+        <a
+          key={idx}
+          href={link}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`${box.cta} — opens Suprefarm app`}
+          className={`bg-white p-8 rounded-xl shadow-lg transition hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-green-600 block border border-gray-100`}
+        >
+          <h2 className="text-2xl font-semibold mb-4 text-emerald-700">
+            {box.title}
+          </h2>
+          <p className="text-lg mb-6 text-gray-700 opacity-90">
+            {box.description}
+          </p>
 
-                <span
-                  className={`inline-block px-6 py-3 rounded-full font-semibold shadow-md border ${
-                    box.bgColor === "bg-white"
-                      ? "bg-green-700 text-white border-green-700 hover:bg-green-600"
-                      : "bg-yellow-400 text-green-900 border-yellow-400 hover:bg-yellow-300"
-                  }`}
-                >
-                  {box.cta}
-                </span>
-              </a>
-            );
-          })}
-        </div>
-      </section>
+          <span
+            className="inline-block px-6 py-3 rounded-full font-semibold shadow-md bg-emerald-600 text-white border-emerald-600 hover:bg-emerald-500 hover:border-emerald-500"
+          >
+            {box.cta}
+          </span>
+        </a>
+      );
+    })}
+  </div>
+</section>
+
+
 
       {/* Why Partner Section (make each row a light CTA to payment) */}
       <section className="bg-gray-50 py-20 px-6 md:px-16">
