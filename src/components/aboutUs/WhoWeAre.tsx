@@ -69,7 +69,8 @@ export default function WhoWeAreRedesign() {
               <CTA to="/projects" variant="primary">
                Explore Projects <ArrowRight className="ml-2 h-5 w-5" />
               </CTA>
-              <CTA to="/work-with-us" variant="ghost">Work with us</CTA>
+              {/* <CTA to="/work-with-us" variant="ghost">Work with us</CTA> */}
+              <CTA to="/faq" variant="ghost">Frequently Asked Questions</CTA>
             </div>
 
             {/* Stats */}

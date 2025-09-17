@@ -17,6 +17,8 @@ import SDGBand from "../components/home/SDGBand";
 import ApproachSection from "../components/home/ApproachSection";
 import CustomerJourney from "../components/CustomerJourney";
 import RiskMapSuprefarm from "../components/home/RiskAssessment";
+// import green13 from "../assets/images/green13.png";
+// import green14 from "../assets/images/green14.png";
 
 const slides = [
   {
