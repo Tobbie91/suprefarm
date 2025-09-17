@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 import green1 from "../assets/images/vid.jpg";
 import green2 from "../assets/images/green12.webp";
-import green3 from "../assets/images/vid.jpg";
+// import green3 from "../assets/images/vid.jpg";
 import SuprefarmSimulator from "../components/home/simultor";
 import PartnersMarquee from "../components/home/PartnersMarquee";
 import SDGBand from "../components/home/SDGBand";
@@ -19,20 +19,22 @@ import CustomerJourney from "../components/CustomerJourney";
 import RiskMapSuprefarm from "../components/home/RiskAssessment";
 // import green13 from "../assets/images/green13.png";
 // import green14 from "../assets/images/green14.png";
+import green15 from "../assets/images/green15.png";
+
 
 const slides = [
   {
-    image: green1,
+    image: green15,
     title: "Co-own Climate-Smart Palmtree Farmland",
     text: "Build wealth and resilience together. Choose plots, empower farmers with training and inputs, and receive seasonal updates and returns with transparent, AI-powered reporting.",
   },
   {
-    image: green2,
+    image: green1,
     title: "Be part of the climate solution",
     text: "Step into ownership of thriving palm tree farmland in Ilora. Create jobs, strengthen food security, and track impact via satellite + AI.",
   },
   {
-    image: green3,
+    image: green15,
     title: "Grow your wealth while growing nature",
     text: "Our farms deliver returns while regenerating soil, restoring forests, and improving ecosystems.",
   },
@@ -88,10 +90,10 @@ export default function Home() {
         className="relative min-h-[70vh] py-16 md:py-20 px-6 bg-gradient-to-br from-white via-green-50/30 to-emerald-50/50"
         aria-label="Hero"
       >
-        <div className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-white/80 px-3 lg:ml-[4em] py-1 text-emerald-700 text-sm font-medium mx-auto md:mx-0">
+        {/* <div className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-white/80 px-3 lg:ml-[4em] py-1 text-emerald-700 text-sm font-medium mx-auto md:mx-0">
           <span className="inline-block h-2 w-2 rounded-full bg-emerald-500" />{" "}
           Climate Smart farm
-        </div>
+        </div> */}
 
         <div className="mx-auto flex flex-col md:flex-row items-center justify-between gap-10 w-full max-w-7xl">
           <div className="w-full text-center md:text-left max-w-3xl antialiased">

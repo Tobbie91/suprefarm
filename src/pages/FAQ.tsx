@@ -1,10 +1,12 @@
-import { SetStateAction, useState } from "react";
+import { useState } from "react";
 
 export default function FAQAccordion() {
-  const [openIndex, setOpenIndex] = useState(null);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
-  const toggleAccordion = (index: number | SetStateAction<null>) => {
-    setOpenIndex(openIndex === index ? null : index);
+
+
+  const toggleAccordion = (index: number) => {
+    setOpenIndex(openIndex === index ? null : index); 
   };
 
   const accordionItems = [

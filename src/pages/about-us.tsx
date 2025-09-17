@@ -7,6 +7,7 @@ import WhoWeAreRedesign from "../components/aboutUs/WhoWeAre";
 import OurStorySection from "../components/aboutUs/OurStorySection";
 import WhatWeDoSection from "../components/home/WhatWeDoSection";
 import FocusRegions from "../components/aboutUs/focusRegions";
+import green16 from "../assets/images/green16.png";
 
 
 // DUMMY fallbacks (reuse existing images)
@@ -105,7 +106,7 @@ export default function About() {
           </div>
         </div>
       </section>
-      <WhatWeDoSection imageSrc={green2}/>
+      <WhatWeDoSection imageSrc={green16}/>
 
 
 
