@@ -212,7 +212,7 @@ export default function RiskMapSuprefarm() {
       ].map((item, idx) => (
         <motion.div
           key={idx}
-          className="rounded-2xl p-5 bg-gradient-to-br from-green-700 to-green-800 text-white shadow-xl border border-white/10 flex items-start gap-4"
+          className="rounded-2xl p-5 bg-white  text-black shadow-xl border border-white/10 flex items-start gap-4"
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.25 }}
@@ -220,15 +220,15 @@ export default function RiskMapSuprefarm() {
         >
           <div className="text-2xl leading-none">{item.icon}</div>
           <div>
-            <h4 className="font-semibold text-green-300 mb-1">
+            <h4 className="font-semibold text-black mb-1">
               {item.title}
             </h4>
-            <p className="text-white/95">{item.desc}</p>
+            <p className="text-gray-700">{item.desc}</p>
           </div>
         </motion.div>
       ))}
     </div>
-    <div className="mt-6">
+    <div className="mt-6 text-green-600">
       <CTA to="/what-we-do" variant="link">
         Learn more <ArrowRight className="ml-2 h-4 w-4" />
       </CTA>

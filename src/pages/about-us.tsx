@@ -224,7 +224,7 @@ export default function About() {
           className="text-center rounded-2xl p-6 bg-white border border-gray-200 shadow-sm"
         >
           {/* Team Image */}
-          <div className="h-20 w-20 rounded-full mx-auto mb-3 overflow-hidden">
+          <div className="h-45 w-45 rounded-full mx-auto mb-3 overflow-hidden">
             <img
               src={a.image} // Use the image path from the array
               alt={a.name}

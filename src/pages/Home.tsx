@@ -9,7 +9,7 @@ import {
   Handshake,
 } from "lucide-react";
 import green1 from "../assets/images/vid.jpg";
-import green2 from "../assets/images/green12.webp";
+// import green2 from "../assets/images/green12.webp";
 // import green3 from "../assets/images/vid.jpg";
 import SuprefarmSimulator from "../components/home/simultor";
 import PartnersMarquee from "../components/home/PartnersMarquee";
