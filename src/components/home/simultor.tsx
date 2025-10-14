@@ -3,11 +3,11 @@ import { useState, useMemo } from "react";
 export default function SuprefarmSimulator() {
   // Inputs
   const [acres, setAcres] = useState(1);
-  const [pricePerKeg, setPricePerKeg] = useState(50000); // Selling price per keg as dynamic state
-  const [exchangeRate, setExchangeRate] = useState(1500); // Exchange rate as dynamic state
-  const litersPerAcre = 10000;
-  const kegSizeLiters = 25;
-  const miscPercent = 25;
+  const [pricePerKeg, setPricePerKeg] = useState(50000); // ₦ per 25kg keg
+  const [exchangeRate, setExchangeRate] = useState(1500); // ₦ per $
+  const kgPerAcre = 1690; // 1.69 metric tons per acre
+  const kegSizeKg = 25;   // 25 kg per keg
+  const miscPercent = 25; // operational costs %
 
   // Helpers
   const toNumber = (v: number) => {
@@ -17,38 +17,40 @@ export default function SuprefarmSimulator() {
 
   const results = useMemo(() => {
     const a = Math.max(0, toNumber(acres));
-    const lpa = Math.max(0, toNumber(litersPerAcre));
-    const kegSize = Math.max(0.0001, toNumber(kegSizeLiters));
-    const price = Math.max(0, toNumber(pricePerKeg)); // Using dynamic price
-    const rate = Math.max(1, toNumber(exchangeRate)); // Using dynamic exchange rate
+    const kgAcre = Math.max(0, toNumber(kgPerAcre));
+    const kegSize = Math.max(0.0001, toNumber(kegSizeKg));
+    const price = Math.max(0, toNumber(pricePerKeg));
+    const rate = Math.max(1, toNumber(exchangeRate));
     const misc = Math.min(100, Math.max(0, toNumber(miscPercent)));
 
-    const totalLiters = a * lpa;
-    const totalKegs = Math.floor(totalLiters / kegSize);
+    const totalKg = a * kgAcre;
+    // Round to the nearest whole keg so 1690/25 ≈ 67.6 -> 68
+    const totalKegs = Math.round(totalKg / kegSize);
 
     const grossNaira = totalKegs * price;
     const miscCharges = (misc / 100) * grossNaira;
     const netNaira = grossNaira - miscCharges;
     const netUSD = netNaira / rate;
 
-    const litersPerAcreCalc = lpa;
-    const kegsPerAcre = Math.floor(lpa / kegSize);
-    const grossPerAcre = kegsPerAcre * price;
+    const kegsPerAcreExact = kgAcre / kegSize;
+    const kegsPerAcreRounded = Math.round(kegsPerAcreExact);
+    const grossPerAcre = kegsPerAcreRounded * price;
     const netPerAcre = grossPerAcre * (1 - misc / 100);
 
     return {
-      totalLiters,
+      totalKg,
       totalKegs,
       grossNaira,
       miscCharges,
       netNaira,
       netUSD,
-      litersPerAcreCalc,
-      kegsPerAcre,
+      kgPerAcreCalc: kgAcre,
+      kegsPerAcreExact,
+      kegsPerAcreRounded,
       grossPerAcre,
       netPerAcre,
     };
-  }, [acres, pricePerKeg, exchangeRate]); // Recalculating when pricePerKeg or exchangeRate change
+  }, [acres, pricePerKeg, exchangeRate]); // miscPercent & constants don't change
 
   const fmt = (n: number) =>
     n.toLocaleString(undefined, { maximumFractionDigits: 2 });
@@ -66,14 +68,14 @@ export default function SuprefarmSimulator() {
         <header className="px-6 pt-6 pb-4 text-center border-b border-gray-100">
           <h1 className="text-3xl font-bold">Suprefarm Acre Revenue Estimator</h1>
           <p className="text-sm text-slate-600 mt-1">
-            Estimate palm oil production, kegs, revenue, and net returns for your co-ownership.
+            Estimate palm oil production (by weight), kegs, revenue, and net returns for your co-ownership.
           </p>
         </header>
 
         {/* Body */}
         <div className="p-6">
           <div className="grid gap-6 md:grid-cols-2">
-            {/* Input Section (no heavy shadow; subtle border only) */}
+            {/* Input Section */}
             <section className="rounded-2xl p-6 border border-gray-100 bg-white">
               <h2 className="font-semibold mb-3 text-green-600">Adjust Acres</h2>
 
@@ -114,30 +116,30 @@ export default function SuprefarmSimulator() {
               {/* Fixed Fields */}
               <div className="mt-6">
                 <label className="block mb-3 text-sm text-slate-700">
-                  Liters per Acre
+                  Yield per Acre (kg)
                 </label>
                 <input
                   type="number"
-                  value={litersPerAcre}
+                  value={kgPerAcre}
                   className="w-full rounded-lg border px-3 py-2 text-gray-500 bg-gray-100"
                   disabled
                 />
                 <p className="text-xs text-slate-500 mt-1">
-                  Default: 10,000 L (≈ 4 tonnes)
+                  Default: 1,690 kg (≈ 1.69 tonnes per acre)
                 </p>
 
                 <label className="block mt-3 mb-3 text-sm text-slate-700">
-                  Keg Size (liters)
+                  Keg Size (kg)
                 </label>
                 <input
                   type="number"
-                  value={kegSizeLiters}
+                  value={kegSizeKg}
                   className="w-full rounded-lg border px-3 py-2 text-gray-500 bg-gray-100"
                   disabled
                 />
-                <p className="text-xs text-slate-500 mt-1">Default: 25 L</p>
+                <p className="text-xs text-slate-500 mt-1">Default: 25 kg</p>
 
-                {/* Selling Price input (iterable) */}
+                {/* Selling Price input */}
                 <label className="block mt-3 mb-3 text-sm text-slate-700">
                   Selling Price per Keg (₦)
                 </label>
@@ -147,11 +149,9 @@ export default function SuprefarmSimulator() {
                   onChange={(e) => setPricePerKeg(Number(e.target.value))}
                   className="w-full rounded-lg border px-3 py-2 text-gray-500 bg-gray-100"
                 />
-                <p className="text-xs text-slate-500 mt-1">
-                  Default: ₦50,000
-                </p>
+                <p className="text-xs text-slate-500 mt-1">Default: ₦50,000</p>
 
-                {/* Exchange Rate input (iterable) */}
+                {/* Exchange Rate input */}
                 <label className="block mt-3 mb-3 text-sm text-slate-700">
                   Exchange Rate (₦ per $)
                 </label>
@@ -164,7 +164,7 @@ export default function SuprefarmSimulator() {
                 <p className="text-xs text-slate-500 mt-1">Default: ₦1,500</p>
 
                 <label className="block mt-3 mb-3 text-sm text-slate-700">
-                Operational Costs (%)
+                  Operational Costs (%)
                 </label>
                 <input
                   type="number"
@@ -185,7 +185,7 @@ export default function SuprefarmSimulator() {
               </div>
             </section>
 
-            {/* Results Section (no heavy shadow; subtle border only) */}
+            {/* Results Section */}
             <section className="rounded-2xl p-6 border border-gray-100 bg-white">
               <h2 className="font-semibold mb-3 text-green-600">
                 Simulation Results
@@ -193,8 +193,8 @@ export default function SuprefarmSimulator() {
 
               <div className="grid gap-3">
                 {[
-                  { label: "Total Liters", value: results.totalLiters, unit: "L" },
-                  { label: "Total Kegs", value: results.totalKegs, unit: "kegs" },
+                  { label: "Total Weight", value: results.totalKg, unit: "kg" },
+                  { label: "Total Kegs (rounded)", value: results.totalKegs, unit: "kegs" },
                   { label: "Gross Sales (₦)", value: results.grossNaira, unit: "₦" },
                   { label: "Operational Costs (₦)", value: results.miscCharges, unit: "₦" },
                   { label: "Net Sales (₦)", value: results.netNaira, unit: "₦" },
@@ -212,8 +212,25 @@ export default function SuprefarmSimulator() {
                   </div>
                 ))}
 
+                {/* Per-acre quick view */}
+                <div className="p-4 rounded-xl border bg-white">
+                  <div className="text-xs text-slate-500">Per Acre (reference)</div>
+                  <div className="mt-1 text-sm">
+                    <div>Yield: {fmt(results.kgPerAcreCalc)} kg (≈ 1.69 t)</div>
+                    <div>
+                      Kegs per acre: {fmt(results.kegsPerAcreRounded)}{" "}
+                      <span className="text-slate-500">
+                        (exact {fmt(results.kegsPerAcreExact)})
+                      </span>
+                    </div>
+                    <div>Gross per acre: ₦{fmt(results.grossPerAcre)}</div>
+                    <div>Net per acre: ₦{fmt(results.netPerAcre)}</div>
+                  </div>
+                </div>
+
                 <div className="text-xs text-slate-500 mt-2">
-                  Note: Kegs are rounded down to whole units (partial kegs are not counted). Adjust inputs to change assumptions.
+                  Note: Kegs are rounded <b>to the nearest</b> whole unit (e.g., 1,690 kg ÷ 25 kg ≈ 67.6 → 68).
+                  Adjust inputs to change pricing and FX assumptions.
                 </div>
               </div>
             </section>
