@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- background -->
+  <rect width="64" height="64" rx="12" fill="#065F46"/>
+  <!-- S monogram -->
+  <text x="50%" y="54%" text-anchor="middle"
+        font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif"
+        font-size="42" font-weight="800"
+        fill="#FFFFFF" stroke="#0B0B0B" stroke-width="1.5" paint-order="stroke">
+    S
+  </text>
+</svg>
