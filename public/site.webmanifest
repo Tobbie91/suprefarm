@@ -1,0 +1,13 @@
+{
+    "name": "SupreFarm",
+    "short_name": "SupreFarm",
+    "icons": [
+      { "src": "/icons/android-chrome-192x192.png", "sizes": "192x192", "type": "image/png" },
+      { "src": "/icons/android-chrome-512x512.png", "sizes": "512x512", "type": "image/png" },
+      { "src": "/favicon.svg", "sizes": "64x64", "type": "image/svg+xml", "purpose": "any" }
+    ],
+    "theme_color": "#065F46",
+    "background_color": "#FFFFFF",
+    "display": "standalone"
+  }
+  

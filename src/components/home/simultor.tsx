@@ -50,7 +50,7 @@ export default function SuprefarmSimulator() {
       grossPerAcre,
       netPerAcre,
     };
-  }, [acres, pricePerKeg, exchangeRate]); // miscPercent & constants don't change
+  }, [acres, pricePerKeg, exchangeRate]); 
 
   const fmt = (n: number) =>
     n.toLocaleString(undefined, { maximumFractionDigits: 2 });
